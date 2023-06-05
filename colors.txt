@@ -1,0 +1,13 @@
+LighColors: 
+    #222222 - TextColors
+    #F5EFFF - BgColors1
+    #CDC1FF - Bgcolors2
+    #339989 - Contrast1
+    #3B60E4 - Contrast2
+
+DarkColors
+    #F5EFFF - TextColors
+    #201F1D - BgColors1
+    #403D39 - BgColors2    
+    #339989 - Contrast1
+    #3B60E4 - Contrast2
