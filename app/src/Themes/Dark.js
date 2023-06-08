@@ -1,7 +1,7 @@
-export const LightTheme = {
+export const DarkTheme = {
     bgColors: {
-        bgColor1: "#F5EFFF",
-        bgColor2: "#CDC1FF"
+        bgColor1: "#201F1D",
+        bgColor2: "#151515"
     },
 
     primary: {
@@ -15,7 +15,7 @@ export const LightTheme = {
     },
 
     font:{
-        color_default: "#222222",
-        color_light: "#2222228a"
+        color_default: "#F5EFFF",
+        color_light: "#F5EFFF8a"
     }
 }

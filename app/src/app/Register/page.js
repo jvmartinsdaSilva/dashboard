@@ -1,0 +1,85 @@
+"use client"
+
+import {useState } from 'react'
+
+import * as Yup from 'yup'
+import {useForm} from 'react-hook-form'
+import {yupResolver} from "@hookform/resolvers/yup"
+
+import { RegisterUser } from "@/components/Form/Hooks/Register"
+
+import Form from "@/components/Form/Form"
+import { Input } from "@/components/Form/InputForm/Input"
+import { Button } from "@/components/Buttons/DefaultButton/Button"
+import { Message } from '@/components/Message/Message'
+
+
+const schema = Yup.object().shape({
+  name: Yup.string().min(3, "No mínimo 3 letras").required("Nome obrigatório"),
+  email: Yup.string().email().required("O campo email é obrigatório"),
+  password: Yup.string().min(6, "Minimo 6").required("A senha é obrigatória"),
+  confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], 'As senhas não conferem').required("Campo obrigatório"),
+})
+
+
+const FormRegister = () => {
+  const [serverResposne, setServeResponse] = useState()
+
+  const {register, handleSubmit, formState: {errors}} = useForm({
+    mode: "all",
+    resolver: yupResolver(schema)
+  })
+
+  const handleSubmitData = async datas => {
+    const register = await RegisterUser(datas)
+    setServeResponse(register)
+  }
+
+
+  return (
+    <Form title="Cadastro de usuário"
+    link={{toGo: "/", info: "Login"}}
+
+    onSubmit={handleSubmit(handleSubmitData)}
+    >
+      <Input
+        placeholder="Informe seu nome"
+        label="Nome"
+        type="text" 
+        innerRef={register("name")}
+        />
+        {errors.name && <Message text={errors.name.message}/>}
+
+      <Input
+        placeholder="Informe seu email"
+        label="Email"
+        type="email" 
+        innerRef={register("email")}
+        />
+        {errors.email && <Message text={errors.email.message}/>}
+
+      <Input
+        placeholder="Digite sua senha"
+        label="Senha"
+        type="password" 
+        innerRef={register("password")}
+        />
+        {errors.password && <Message text={errors.password.message}/>}
+      
+
+      <Input
+        placeholder="Confirme sua senha"
+        label="Confirme a senha"
+        type="password" 
+        innerRef={register("confirmPassword")}
+        />
+        {errors.confirmPassword && <Message text={errors.confirmPassword.message}/>}
+
+      
+      <Button text="Cadastrar" />
+      {serverResposne && <Message text={serverResposne} />}
+    </Form>
+  )
+}
+
+export default FormRegister

@@ -6,7 +6,7 @@ export const Input = (
     {
         label = '',
         type = 'text',
-        name = '',
+        innerRef = '',
         ...rest
     }) => {
 
@@ -15,7 +15,7 @@ export const Input = (
         <>
             <S.Container>
                 {<S.Label htmlFor={labelId}>{label}</S.Label>}
-                <S.Input type="text" name={name} id={labelId}{...rest} />
+                <S.Input {...innerRef} type={type} id={labelId} {...rest}/>
             </S.Container>
 
         </>

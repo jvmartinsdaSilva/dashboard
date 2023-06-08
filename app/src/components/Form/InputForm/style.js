@@ -4,17 +4,19 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: .25em;
+    color: ${props => props.theme.font.color_default};
+    margin: .5em 0;
+
 
     &:focus-within{
         input{
             border-width: 2px;
-            border-color:${props => props.theme.primary.color_bold};
-            color: ${props => props.theme.primary.color_bold};
+            border-color:${props => props.theme.primary.color_default};
+            color: ${props => props.theme.primary.color_default};
         }
 
         label{
-            color: ${props => props.theme.primary.color_bold};
+            color: ${props => props.theme.primary.color_default};
         }
     }
 
@@ -23,11 +25,15 @@ export const Container = styled.div`
 export const Input = styled.input`
     border: 
     1px solid
-    ${props => props.theme.bgColors.bgColor2};
+    ${props => props.theme.font.color_light};
+    background-color: ${props => props.theme.bgColors.bgColor1};
     padding: .85em;
     outline: none;
     font-size: 16px;
     font-weight: 510;
+    color: ${props => props.theme.font.color_default};
+
+    
     
 `
 
