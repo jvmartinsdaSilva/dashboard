@@ -1,3 +1,4 @@
+import { createUser } from '../DataBase/createUser.js'
 import * as Yup from 'yup'
 
 const schema = Yup.object().shape({
@@ -8,11 +9,17 @@ const schema = Yup.object().shape({
 })
 
 
-
 export const RegisterUser = async (req, res) => {
-    const user = req.body
+    const user = {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        confirmPassword: req.body.confirmPassword
+    }
     const isValidUser = await schema.isValid(user)
-    const message = isValidUser ? "Cadastrado com sucesso" : "Confira se as informaões estão correats"
-   
-    res.json(message)
+    
+    if(!isValidUser) return res.status(401).json("Insira um usuario valido")
+
+    const create = await createUser(user)
+    return res.status(create.status).json(create.msg)
 }

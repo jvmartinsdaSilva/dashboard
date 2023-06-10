@@ -15,4 +15,5 @@ export const Button = styled.button`
         background: ${props => props.theme.primary.color_bold};
     }
 
+
 `

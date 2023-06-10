@@ -1,5 +1,6 @@
 
 export const RegisterUser  = async datas => {
+    
     const data = await fetch("http://localhost:8080/register", {
         method: "POST",
         headers: {

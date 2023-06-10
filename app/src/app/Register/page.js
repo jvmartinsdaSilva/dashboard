@@ -1,10 +1,10 @@
 "use client"
 
-import {useState } from 'react'
+import { useState } from 'react'
 
 import * as Yup from 'yup'
-import {useForm} from 'react-hook-form'
-import {yupResolver} from "@hookform/resolvers/yup"
+import { useForm } from 'react-hook-form'
+import { yupResolver } from "@hookform/resolvers/yup"
 
 import { RegisterUser } from "@/components/Form/Hooks/Register"
 
@@ -25,7 +25,7 @@ const schema = Yup.object().shape({
 const FormRegister = () => {
   const [serverResposne, setServeResponse] = useState()
 
-  const {register, handleSubmit, formState: {errors}} = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "all",
     resolver: yupResolver(schema)
   })
@@ -35,47 +35,46 @@ const FormRegister = () => {
     setServeResponse(register)
   }
 
-
   return (
     <Form title="Cadastro de usuário"
-    link={{toGo: "/", info: "Login"}}
-
-    onSubmit={handleSubmit(handleSubmitData)}
+      link={{ toGo: "/", info: "Login" }}
+      onSubmit={handleSubmit(handleSubmitData)}
     >
+
       <Input
         placeholder="Informe seu nome"
         label="Nome"
-        type="text" 
+        type="text"
         innerRef={register("name")}
-        />
-        {errors.name && <Message text={errors.name.message}/>}
+      />
+      {errors.name && <Message text={errors.name.message} />}
 
       <Input
         placeholder="Informe seu email"
         label="Email"
-        type="email" 
+        type="email"
         innerRef={register("email")}
-        />
-        {errors.email && <Message text={errors.email.message}/>}
+      />
+      {errors.email && <Message text={errors.email.message} />}
 
       <Input
         placeholder="Digite sua senha"
         label="Senha"
-        type="password" 
+        type="password"
         innerRef={register("password")}
-        />
-        {errors.password && <Message text={errors.password.message}/>}
-      
+      />
+      {errors.password && <Message text={errors.password.message} />}
+
 
       <Input
         placeholder="Confirme sua senha"
         label="Confirme a senha"
-        type="password" 
+        type="password"
         innerRef={register("confirmPassword")}
-        />
-        {errors.confirmPassword && <Message text={errors.confirmPassword.message}/>}
+      />
+      {errors.confirmPassword && <Message text={errors.confirmPassword.message} />}
 
-      
+
       <Button text="Cadastrar" />
       {serverResposne && <Message text={serverResposne} />}
     </Form>
