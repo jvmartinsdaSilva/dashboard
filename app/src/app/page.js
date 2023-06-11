@@ -1,4 +1,7 @@
 "use client"
+import { useState } from "react"
+
+import { LoginUser } from "@/components/Form/Hooks/Login"
 
 import * as Yup from "yup"
 import {useForm} from  "react-hook-form"
@@ -16,13 +19,16 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
+    const [serverMessage, setServeMessage] = useState()
+
     const {register, handleSubmit, formState: {errors}} = useForm({
         mode: "onSubmit",
         resolver: yupResolver(schema)
     })
 
-    const handleSubmitData = datas => {
-
+    const handleSubmitData = async datas => {
+        const login = await  LoginUser(datas)
+        setServeMessage(login)
     }
 
     return(
@@ -48,6 +54,7 @@ const Login = () => {
             {errors.password && <Message text={errors.password.message}/>}
 
             <Button text="Entar" />
+            {serverMessage && <Message text={serverMessage} />}
         </Form>
     )
 }

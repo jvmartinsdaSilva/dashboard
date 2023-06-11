@@ -15,7 +15,7 @@ import { Message } from '@/components/Message/Message'
 
 
 const schema = Yup.object().shape({
-  name: Yup.string().min(3, "No mínimo 3 letras").required("Nome obrigatório"),
+  name: Yup.string().min(3, "No mínimo 3 letras").max(30, "No maxímo 30 caracteres").required("Nome obrigatório"),
   email: Yup.string().email().required("O campo email é obrigatório"),
   password: Yup.string().min(6, "Minimo 6").required("A senha é obrigatória"),
   confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], 'As senhas não conferem').required("Campo obrigatório"),

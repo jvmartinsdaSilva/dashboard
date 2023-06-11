@@ -53,6 +53,7 @@ export const createUser = async data => {
 
         const salt = await saltGenerator.generatSalt()
         const hash = await hashGenerator.generatHash(data.password, salt)
+        
 
         const user = [
             randomId(),
