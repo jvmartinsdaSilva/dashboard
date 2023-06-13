@@ -76,7 +76,7 @@ const FormRegister = () => {
 
 
       <Button text="Cadastrar" />
-      {serverResposne && <Message text={serverResposne} />}
+      {serverResposne && <Message text={serverResposne.msg} />}
     </Form>
   )
 }

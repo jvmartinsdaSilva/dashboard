@@ -10,8 +10,8 @@ export const RegisterUser = async (req, res) => {
     }
     const isValidUser = await ValidationUser(user)
 
-    if (!isValidUser.valid) return res.status(isValidUser.status).json(isValidUser.msg)
+    if (!isValidUser.valid) return res.status(isValidUser.status).json({msg: isValidUser.msg})
 
     const create = await createUser(user)
-    return res.status(create.status).json(create.msg)
+    return res.status(create.status).json({msg: create.msg})
 }

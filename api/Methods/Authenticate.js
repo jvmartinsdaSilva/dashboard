@@ -6,10 +6,9 @@ class ComparePass{
         return new Promise((resolve, reject) => {
             bcrypt.compare(testPassword, user.pass, (err, result) => {
                 if(err) return reject(err)
-                if(!result) return resolve({autheticate: false, status: 404, msg: "Senha incorreta"})
+                if(!result) return resolve({authenticate: false, status: 404, msg: "Senha incorreta"})
                 
-                
-                return resolve({autheticate: true, status: 202, msg: "Credenciais validas"})
+                return resolve({authenticate: true, status: 202, msg: ""})
             })
         })
     }
@@ -20,5 +19,8 @@ export const Authenticate = async datas => {
     if(getUser.length <= 0) return {autheticate: false, status: 404, msg: "Usúario não encontrado"}
 
     const checkPassword = await new ComparePass().passwordValid(getUser[0], datas.password)
-    return checkPassword
+    return {
+        passwordIsValid: checkPassword,
+        user: getUser
+    }
 }
