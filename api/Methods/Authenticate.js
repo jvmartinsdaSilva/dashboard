@@ -16,7 +16,9 @@ class ComparePass{
 
 export const Authenticate = async datas => {
     const getUser = await new SearchEmail().search(datas.email)
-    if(getUser.length <= 0) return {autheticate: false, status: 404, msg: "Usúario não encontrado"}
+    if(getUser.length <= 0) return {passwordIsValid: {
+        authenticate: false, status: 404, msg: "Usúario não encontrado"
+    }}
 
     const checkPassword = await new ComparePass().passwordValid(getUser[0], datas.password)
     return {

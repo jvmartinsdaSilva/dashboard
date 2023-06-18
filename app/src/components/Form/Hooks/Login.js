@@ -10,6 +10,9 @@ export const LoginUser = async userData => {
         const user = await data.json()
         return user
     } catch(err) {
-        return err
+        return {
+            err,
+            msg: "Desculpe não conseguimos conectar!"
+        }
     }
 }

@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         background: ${props => props.theme.bgColors.bgColor2};
+        /* color: ${props => props.theme.font.color_default} */
     }
 `
     

@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt'
 
 const randomId = () => {
     const random = uuid().split('-')[0]
-    return `#${random}`
+    return `${random}`
 }
 
 class SaltGenerator {

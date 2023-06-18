@@ -1,18 +1,18 @@
 "use client"
-import { useEffect, useState } from "react"
-
-import { LoginUser } from "@/components/Form/Hooks/Login"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 import * as Yup from "yup"
 import {useForm} from  "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 
+import { LoginUser } from "@/components/Form/Hooks/Login"
+import { setLocalStorage } from "@/Functions/LocalStorage"
+
 import Form from "@/components/Form/Form"
 import { Input } from "@/components/Form/InputForm/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from "@/components/Message/Message"
-import { Loading } from "@/components/Loading/Loadin"
-
 
 const schema = Yup.object().shape({
     email: Yup.string().email("Insira um email valido").required("Campo é obrigatório"),
@@ -20,6 +20,7 @@ const schema = Yup.object().shape({
 })
 
 const Login = () => {
+    const {push} = useRouter()
     const [serverMessage, setServeMessage] = useState()
  
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -30,12 +31,18 @@ const Login = () => {
     const handleSubmitData = async datas => {
         const login = await  LoginUser(datas)
         setServeMessage(login.msg)
+
+        if(login.token){
+            setLocalStorage("token", login.token)
+            setLocalStorage("user", login.id)
+            push("/dashboard")
+        }  
     }
 
     return(
         <Form 
         title="Login"
-        link={{toGo: "/Register", info: "Cadastre-se agora"}}
+        link={{toGo: "/register", info: "Cadastre-se agora"}}
         onSubmit={handleSubmit(handleSubmitData)}
         >
             <Input 

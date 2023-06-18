@@ -1,4 +1,4 @@
-import { LinkComponent } from '../LinkComponent/LinkComponent.js'
+import { LinkComponent } from '../LinkComponent/LinkComponent'
 
 import * as S from './style.js'
 
