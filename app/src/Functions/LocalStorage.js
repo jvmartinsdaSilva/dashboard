@@ -9,4 +9,5 @@ export const getLocalStorage = (key) => {
         const res = data ?? ""
         return res
       }
+
 }

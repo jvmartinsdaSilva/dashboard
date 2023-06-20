@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react"
 import { APP_ROUTES } from "@/constants/appRoutes"
 
 import { checkAuthenticate } from "@/Functions/Authenticate/checkIsAuthenticate"
-import { UserContext, UserProvider } from "@/context/User/UserContext"
+import { UserContext } from "@/context/User/UserContext"
 
 export const PrivateRouter = ({children}) => {
     const {login} = useContext(UserContext)

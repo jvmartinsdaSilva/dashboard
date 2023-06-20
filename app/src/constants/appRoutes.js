@@ -1,6 +1,7 @@
 export const APP_ROUTES = {
     private: {
-        dashboard: "/dashboard"
+        dashboard: "/dashboard",
+        editUser: "/editUser"
     },
 
     public: {

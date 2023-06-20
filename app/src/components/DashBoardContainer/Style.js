@@ -7,4 +7,10 @@ export const Container = styled.div`
     height: 100vh;
     color: ${props => props.theme.font.color_default};
 
+
+    @media  (max-width: 600px){
+            flex-direction: column;
+    }
+
+
 `

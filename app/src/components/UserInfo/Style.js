@@ -6,7 +6,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: .5em;
+    padding: .5em;
     width: 100%;
     height: 250px;
     color: ${props => props.theme.font.color_default};
@@ -17,10 +17,25 @@ export const Container = styled.div`
     }
 `
 
-export const UserPhoto = styled.img`
+export const UserPhoto = styled.div`
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        border: 2px solid ${props => props.theme.font.color_default} ;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(${props => props.image});
 
+`
+
+export const UserName = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1em;
+    padding: .25em;
+    padding-left: 26%;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bolder;
 `
