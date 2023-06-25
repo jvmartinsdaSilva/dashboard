@@ -1,11 +1,12 @@
 import Chart from 'chart.js/auto'
 import { CategoryScale } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
-
+import {Line} from  "react-chartjs-2"
 
 Chart.register(CategoryScale)
 
 import styled from "styled-components";
+
 
 export const Container = styled.div`
     display: flex;
@@ -13,30 +14,23 @@ export const Container = styled.div`
     justify-content: center;
     width: 100%;
     height: 80%;
-    overflow: auto;
+
+    canvas{
+        width: 100%;
+    }
 
 `
+export const GraphTest = ({datas, type}) => {
 
-export const GraphTest = () => {
+    const labels = datas?.labels.map(item => item?.label)
+
     return (
         <Container>
-            <Bar
+            {console.log("Gráfico: ", datas)}
+            <Bar key={datas} // Lembrete - Remover assim que não ser mais necessário
                 data={{
-                    labels: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
-                    datasets: [
-                        {
-                            label: "Tv",
-                            data: [14, 25, 38, 98, 110, 150, 160, 45],
-                            backgroundColor: "#0202ff",
-                            borderColor: "#0202ff"
-                        },
-                        {
-                            label: "Books",
-                            data: [60, 89, 45, 12,47 , 20, 10, 15, 30],
-                            backgroundColor: "#1BCA04",
-                            borderColor: "#1BCA04"
-                        }
-                    ]
+                    labels: labels,
+                    datasets: datas.datasets
                 }}
                 options={{
                     plugins: {
@@ -44,9 +38,11 @@ export const GraphTest = () => {
                             display: true,
                             text: ""
                         }
-                    }
+                    },
+                    hover: "index",
+
                 }}
-            />
+                />
         </Container>
     )
 }

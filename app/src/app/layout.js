@@ -1,13 +1,14 @@
 "use client"
 
-import { ThemeProvider } from 'styled-components'
-import { DarkTheme } from '@/Themes/Dark'
+// import { ThemeContext, ThemeProvider } from 'styled-components'
+import { ThemeProvider } from '@/context/ThemeProvider'
 import { GlobalStyle } from '@/Themes/Global'
 import { Inter } from 'next/font/google'
 import { usePathname } from "next/navigation"
 import { checkIsPublicRouter } from '@/Functions/isPublicRouter'
 import { PrivateRouter } from '@/components/PrivateRouter/PrivateRouter'
 import { UserProvider } from '../context/User/UserContext'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,20 +22,20 @@ export default function RootLayout({ children }) {
   const router = usePathname()
   const isPublicRouter = checkIsPublicRouter(router)
 
+
   return (
     <html lang="en">
-      <ThemeProvider theme={DarkTheme}>
-        <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <ThemeProvider>
           {isPublicRouter && children}
-          
           {!isPublicRouter && (
             <UserProvider>
               <PrivateRouter>{children}</PrivateRouter>
             </UserProvider>
           )}
-        </body>
-        <GlobalStyle />
-      </ThemeProvider>
+          <GlobalStyle />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

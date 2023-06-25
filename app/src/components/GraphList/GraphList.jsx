@@ -1,9 +1,15 @@
-import * as S from "./Style"
+import { useContext } from "react"
+
+import { GraphContext } from "@/context/GraphContext/GraphContext"
+
 import { Message } from "../Message/Message"
 
+import * as S from "./Style"
 
 export const GraphList = () => {
-    const graphs = []
+    const graphInfos = useContext(GraphContext)
+
+    const graphs = graphInfos.allGraphs
 
     return(
         <S.Container>
@@ -11,7 +17,7 @@ export const GraphList = () => {
             <S.List>
                 {graphs.length <= 0 && <Message text="Não há graficos" />}
                 {graphs.map((graph => (
-                    <S.Item>{graph}</S.Item>
+                    <S.Item key={graph.id}>{graph.title}</S.Item>
                 )))}
             </S.List>
         </S.Container>

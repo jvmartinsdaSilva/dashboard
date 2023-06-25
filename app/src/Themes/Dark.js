@@ -1,4 +1,6 @@
 export const DarkTheme = {
+    title: "DarkTheme",
+
     bgColors: {
         bgColor1: "#201F1D",
         bgColor2: "#151515"
@@ -9,9 +11,15 @@ export const DarkTheme = {
         color_bold: "#2243b9"
     },
     
-    secundary: {
-        color_default: "#339989",
-        color_bold: "#247a6d"
+    menuColors: {
+        positive:{
+            color_default: "#339989",
+            color_bold: "#247a6d"
+        },
+        negative: {
+            color_default: "#c7021c",
+            color_bold: "#9c0216"
+        }
     },
 
     font:{

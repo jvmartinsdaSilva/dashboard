@@ -9,5 +9,8 @@ export const getLocalStorage = (key) => {
         const res = data ?? ""
         return res
       }
+}
 
+export const cleanStorage = () => {
+    return window.localStorage.clear()
 }

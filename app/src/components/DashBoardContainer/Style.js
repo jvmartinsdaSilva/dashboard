@@ -9,6 +9,7 @@ export const Container = styled.div`
 
 
     @media  (max-width: 600px){
+            overflow: hidden;
             flex-direction: column;
     }
 

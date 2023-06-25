@@ -1,15 +1,19 @@
 "use client"
 
+import { GraphProvider } from "@/context/GraphContext/GraphContext"
+
 import { DashContainer } from "@/components/DashBoardContainer/DashContainer"
 import { Menu } from "@/components/Menu/Menu"
 import { Graph } from "@/components/Graphs/Graph"
 
 const DashBoard = () => {
     return (
-        <DashContainer>
-            <Menu />
-            <Graph />
-        </DashContainer>
+        <GraphProvider>
+            <DashContainer>
+                <Menu />
+                <Graph />
+            </DashContainer>
+        </GraphProvider>
     )
 }
 

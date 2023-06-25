@@ -7,15 +7,17 @@ export const Input = (
         label = '',
         type = 'text',
         innerRef = '',
+        color,
+        width = "100%",
         ...rest
     }) => {
 
     const labelId = useId()
     return (
         <>
-            <S.Container>
+            <S.Container color={color} width={width}>
                 {<S.Label htmlFor={labelId}>{label}</S.Label>}
-                <S.Input {...innerRef} type={type} id={labelId} {...rest}/>
+                <S.Input {...innerRef}  type={type} id={labelId} {...rest}/>
             </S.Container>
 
         </>

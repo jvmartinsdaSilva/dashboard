@@ -46,8 +46,6 @@ export const EditPhoto = ({ photoName }) => {
         const res = await UploadPhoto(newPhoto)
         
         if(res.sucess) return window.location.reload()
-        
-        
     }
 
     return (
