@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: ${props => props.width ?? '100%'};
-    color: ${props => props.theme.font.color_default};
+    color: ${props => props.color || props.theme.primary.color_default};
     margin: .5em 0;
 
 

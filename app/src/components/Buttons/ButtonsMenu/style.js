@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
     width: 100px;
-    height: 31px;
+    min-height: 30px;
     border: none;
     border-radius: 5px;
     background: ${props => props.color.color_default};
@@ -14,5 +14,10 @@ export const Button = styled.button`
     &:hover{
         background: ${props => props.color.color_bold};
 
+    }
+
+    @media (max-width: 762px) {
+        width: 75px;
+        font-size: 10px ;
     }
 `

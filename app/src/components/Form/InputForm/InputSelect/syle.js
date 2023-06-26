@@ -5,8 +5,12 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    width: 100%;
     font-size: 18px;
+
+    @media (max-width: 762px){
+        font-size: 14px;
+    }
 `
 
 export const SelectContainer = styled.select`

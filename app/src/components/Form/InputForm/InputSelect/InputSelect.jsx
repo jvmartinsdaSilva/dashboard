@@ -19,7 +19,7 @@ export const InputSelect = (
     }) => {
 
     const labelId = useId()
-    const datas2 = datas.filter(data => data?.id !== dataSelect?.id)
+    const datas2 = datas?.filter(data => data?.id !== dataSelect?.id)
 
 
     return (

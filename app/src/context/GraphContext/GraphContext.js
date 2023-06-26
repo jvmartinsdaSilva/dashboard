@@ -107,21 +107,21 @@ export const GraphProvider = ({ children }) => {
 
         }
 
-        addDataset = () => {
-            const newDataset = createDefaultDataset()
-            const datasets = graph.datas.datasets 
-            datasets.unshift(newDataset)
+        // addDataset = () => {
+        //     const newDataset = createDefaultDataset()
+        //     const datasets = graph.datas.datasets 
+        //     datasets.unshift(newDataset)
 
-            const newGraph = {
-                header: graph.header,
-                datas: {
-                    labels: graph.datas.labels,
-                    datasets: datasets
-                },
-            }
-            setGraph(newGraph)
+        //     const newGraph = {
+        //         header: graph.header,
+        //         datas: {
+        //             labels: graph.datas.labels,
+        //             datasets: datasets
+        //         },
+        //     }
+        //     setGraph(newGraph)
 
-        }
+        // }
 
         getDataset = (id) => {
             const datasets = graph.datas.datasets
