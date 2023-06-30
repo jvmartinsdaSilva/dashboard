@@ -8,7 +8,7 @@ export const Label = styled.label`
     justify-content: space-around;
     width: 100px;
     margin: 1.5em; 
-    font-size: 18px;
+    font-size: 16px;
     
     &:hover{
         color: ${props => props.theme.primary.color_default}

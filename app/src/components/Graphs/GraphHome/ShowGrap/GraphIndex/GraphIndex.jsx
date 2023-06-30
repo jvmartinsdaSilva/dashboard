@@ -11,6 +11,7 @@ import * as S from "./style"
 export const GraphIndex = ({ datas, type }) => {
 
     const options = {
+        responsive: true,
         plugins: {
             title: {
                 display: true,
@@ -22,7 +23,7 @@ export const GraphIndex = ({ datas, type }) => {
 
     const GraphTypes = {
         Bar: <Bar data={datas} options={options}/>,
-        Line: <Line data={datas} options={options} />
+        Line: <Line data={datas} options={options} />,
     }
 
     return (

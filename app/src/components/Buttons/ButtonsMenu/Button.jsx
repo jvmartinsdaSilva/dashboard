@@ -7,7 +7,7 @@ import * as S from "./style"
 export const Button = ({ type, text, ...rest }) => {
     const { themeInfos } = useContext(ThemeContext)
 
-    const colorsButton = type === "negative" ? themeInfos.menuColors.negative : themeInfos.menuColors.positive
+    const colorsButton = type === "negative" ? themeInfos.redColors :  themeInfos.greenColors
 
     return (
         <S.Button {...rest} color={colorsButton}>{text}</S.Button>

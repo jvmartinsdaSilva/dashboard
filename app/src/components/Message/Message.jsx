@@ -2,8 +2,6 @@ import { Button } from "../Buttons/ButtonsMenu/Button"
 
 import styled from "styled-components"
 
-
-
 export const Container = styled.div`
     display: flex;
     flex-direction: row;

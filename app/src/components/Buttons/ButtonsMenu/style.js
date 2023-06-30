@@ -16,7 +16,7 @@ export const Button = styled.button`
 
     }
 
-    @media (max-width: 762px) {
+    @media (max-width: ${props => props.theme.mediaQuery}) {
         width: 75px;
         font-size: 10px ;
     }

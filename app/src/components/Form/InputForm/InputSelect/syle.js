@@ -5,10 +5,12 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
-    font-size: 18px;
+    width: 80%;
+    font-size: 16px;
+    padding: .25em;
 
-    @media (max-width: 762px){
+    @media (max-width: ${props => props.theme.mediaQuery}){
+        width: 100%;
         font-size: 14px;
     }
 `

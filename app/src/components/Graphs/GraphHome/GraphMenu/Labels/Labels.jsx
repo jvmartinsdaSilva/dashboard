@@ -53,7 +53,7 @@ export const Labels = () => {
                 removeSelect={() => remove()}
             />
             <Input
-                width="50%"
+                width="100%"
                 value={labelSelect.label}
                 onChange={e => modify(e.target.value)}
             />

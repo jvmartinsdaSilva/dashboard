@@ -30,26 +30,28 @@ export const createDefaultLabel = () => {
     }
 }
 
-export const defaultGraph = {
-    header: {
-        id: randomId(),
-        title: "Novo Gráfico",
-        description: "Descrição",
-        type: "Line"
-    },
-    datas: {
-        labels: [
-            {
-                id: randomId(),
-                label: "jan"
-            },
-            {
-                id: randomId(),
-                label: "fev"
-            }
-        ],
-        datasets: [
-            createDefaultDataset()
-        ],
+export const createDefaultGraph = () => {
+    return {
+        header: {
+            id: randomId(),
+            title: "Novo Gráfico",
+            description: "Descrição",
+            type: "Line"
+        },
+        datas: {
+            labels: [
+                {
+                    id: randomId(),
+                    label: "jan"
+                },
+                {
+                    id: randomId(),
+                    label: "fev"
+                }
+            ],
+            datasets: [
+                createDefaultDataset()
+            ],
+        }
     }
 }

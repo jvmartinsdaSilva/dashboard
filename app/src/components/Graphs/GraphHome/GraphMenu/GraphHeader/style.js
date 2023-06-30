@@ -12,5 +12,8 @@ export const Header = styled.div`
 export const SelectTypes = styled.div`
     display: flex;
     width: 200%;
+    align-items: center;
+    justify-content: start;
+    align-content: space-around;
     
 `

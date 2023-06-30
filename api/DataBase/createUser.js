@@ -1,4 +1,5 @@
 import { db } from './conection.js'
+import { CreateGraphsStorageByUser } from '../Graphs/GraphControllers/CreateGraphStorage.js'
 
 import { v4 as uuid } from 'uuid'
 import bcrypt from 'bcrypt'
@@ -47,25 +48,30 @@ class DataBase {
 
 export const createUser = async data => {
     try {
+        const userId = randomId()
+
         const saltGenerator = new SaltGenerator()
         const hashGenerator = new HashGenerator()
         const database = new DataBase()
+        const graphStorage = new CreateGraphsStorageByUser()
 
         const salt = await saltGenerator.generatSalt()
         const hash = await hashGenerator.generatHash(data.password, salt)
-        
 
         const user = [
-            randomId(),
+            userId,
             data.name,
             data.email,
             hash
         ];
-
+        
         await database.insertUser(user)
+        await graphStorage.createStorage(userId)
+
         return {status: 202, msg: "Usuario criado com sucesso"}
 
     } catch (err) {
-        return {status: 500, msg: "Desculpa não conseguimos cadastrar um novo usuario"}
+        console.log(err)
+        return {status: 500, msg: err.err, }
     }
 }

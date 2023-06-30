@@ -1,5 +1,7 @@
 export const DarkTheme = {
     title: "DarkTheme",
+    mediaQuery: "762px",
+
 
     bgColors: {
         bgColor1: "#201F1D",
@@ -10,19 +12,17 @@ export const DarkTheme = {
         color_default: "#3B60E4",
         color_bold: "#2243b9"
     },
-    
-    menuColors: {
-        positive:{
-            color_default: "#339989",
-            color_bold: "#247a6d"
-        },
-        negative: {
-            color_default: "#c7021c",
-            color_bold: "#9c0216"
-        }
+
+    greenColors: {
+        color_default: "#339989",
+        color_bold: "#247a6d"
+    },
+    redColors: {
+        color_default: "#c7021c",
+        color_bold: "#9c0216"
     },
 
-    font:{
+    font: {
         color_default: "#F5EFFF",
         color_light: "#F5EFFF8a"
     }

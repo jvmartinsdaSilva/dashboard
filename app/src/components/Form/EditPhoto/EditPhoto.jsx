@@ -51,7 +51,7 @@ export const EditPhoto = ({ photoName }) => {
     return (
         <Form 
         title="Editando usuário" 
-        link={{ toGo: "/dashboard", info: "Voltar para o menu" }}
+        link={{ toGo: "/dashboard", info: "Home" }}
         onSubmit={handleSubmit(handleSubmitData)}>
 
             {edit &&

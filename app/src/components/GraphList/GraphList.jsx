@@ -1,23 +1,36 @@
-import { useContext } from "react"
+import { useContext} from "react"
 
 import { GraphContext } from "@/context/GraphContext/GraphContext"
+import { MenuDisplayContext } from "@/context/MenuDisplay/MenuDispalyContext"
+
 
 import { Message } from "../Message/Message"
 
 import * as S from "./Style"
 
 export const GraphList = () => {
-    const graphInfos = useContext(GraphContext)
+    const { allGraphs: graphs, graphMethods } = useContext(GraphContext)
+    const {toggleDisplay} = useContext(MenuDisplayContext)
 
-    const graphs = graphInfos.allGraphs
+    const graphMethod = new graphMethods()
 
-    return(
+    const showGraph = graph => {
+        graphMethod.toggleGraph(graph)
+        toggleDisplay()
+    }
+
+    return (
         <S.Container>
-                <h2>Seus Gráficos</h2>
+            <h2>Seus Gráficos</h2>
             <S.List>
-                {graphs.length <= 0 && <Message text="Não há graficos" />}
-                {graphs.map((graph => (
-                    <S.Item key={graph.id}>{graph.title}</S.Item>
+                {graphs?.length <= 0 && <Message text="Não há graficos" />}
+
+                {graphs?.map((graph => (
+                    <S.Item
+                        key={graph.header.id}
+                        onClick={() => showGraph(graph)}>
+                        {graph.header.title}
+                    </S.Item>
                 )))}
             </S.List>
         </S.Container>

@@ -8,7 +8,7 @@ export const Container = styled.div`
     color: ${props => props.theme.font.color_default};
 
 
-    @media  (max-width: 600px){
+    @media  (max-width: ${props => props.theme.mediaQuery}){
             overflow: hidden;
             flex-direction: column;
     }

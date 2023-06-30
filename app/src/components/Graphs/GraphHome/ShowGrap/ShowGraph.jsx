@@ -1,3 +1,4 @@
+import { BurgerButton } from "@/components/Buttons/BurgerButton/BurgerButon"
 import { GraphIndex } from "./GraphIndex/GraphIndex"
 
 import * as S from "./Style"
@@ -23,6 +24,7 @@ export const ShowGraph = ({ graphInfos }) => {
 
     return (
         <S.Container>
+            <BurgerButton />
             <S.Header>
                 <S.Title>{graphInfos?.header.title}</S.Title>
                 <S.Description>{graphInfos?.header.description}</S.Description>

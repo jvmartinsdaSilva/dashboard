@@ -7,10 +7,10 @@ export class GetUserInfos{
                 if(err) return reject(err)
 
                 const user = result[0]
-
                 return resolver({
                     name: user.userName,
-                    img: user.userIMG
+                    img: user.userIMG,
+                    graphsPath: user.userGraphs
                 })
             })
         })

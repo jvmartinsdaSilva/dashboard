@@ -1,6 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+import { UserContext } from "../User/UserContext";
 
-import { defaultGraph, createDefaultLabel ,createDefaultDataset  } from "@/constants/graphStructure";
+import { createDefaultGraph, createDefaultLabel ,createDefaultDataset  } from "@/constants/graphStructure";
 
 export const GraphContext = createContext({
     allGraphs: [],
@@ -10,13 +11,17 @@ export const GraphContext = createContext({
 
 
 export const GraphProvider = ({ children }) => {
-    const [allGraphs, setAllGraphs] = useState([])
+    const {user} = useContext(UserContext)
+
+    const [allGraphs, setAllGraphs] = useState(user.graphs)//Lembrete, modificar para salvar todos os gráficos OU adicionar um aviso de que o gráfico tem modificações não salva
     const [graph, setGraph] = useState()
 
     class graphMethods{
-        toggleGraph = (graph) => setGraph(graph);
+        toggleGraph = (graph) => setGraph(graph)
 
-        newGraph = () => setGraph(defaultGraph);
+        newGraph = () => setGraph(createDefaultGraph())
+
+        attGraphs = (newGraphs) => setAllGraphs(newGraphs)
 
         modifyHeader = (newHeader) => {
 
@@ -129,7 +134,6 @@ export const GraphProvider = ({ children }) => {
             return dataset[0]
         }
     }
-
 
 
     return (

@@ -90,7 +90,7 @@ export const Dataset = () => {
     return (
         <>
             <InputSelect
-                title="Categorias"
+                title="Categorias:"
                 datas={allDatasets}
                 dataSelect={datasetSelect}
                 getSelect={e => toggleDataset(e)}
@@ -104,7 +104,6 @@ export const Dataset = () => {
                     label="Nome"
                     onChange={e => modify({ title: e.target.value })}
                     color={datasetSelect?.backgroundColor}
-                    width={"80%"}
                     value={datasetSelect?.label}
                 />
 

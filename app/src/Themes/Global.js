@@ -8,9 +8,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: sans-serif;
 
     }
-
+    
     body{
         background: ${props => props.theme.bgColors.bgColor2};
     }
+
+
 `
     

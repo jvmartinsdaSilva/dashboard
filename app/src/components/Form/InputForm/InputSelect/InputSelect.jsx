@@ -24,13 +24,13 @@ export const InputSelect = (
 
     return (
         <S.Container>
-            <label htmlFor={labelId}>{title}</label>
+            <label htmlFor={labelId}>{title}</label> <br/>
             <S.SelectContainer id={labelId}  onChange={e => getSelect(e.target.value)}>
                 <Option id={dataSelect?.id} label={dataSelect?.label} selected/>
                 {datas2?.map(data => <Option key={data?.id} id={data?.id} label={data?.label} />)}
             </S.SelectContainer>
-            <Button onClick={() => addSelect() } text="Adicionar"/>
-            <Button onClick={() => removeSelect()} text="Remover" type="negative" />
+            <Button onClick={() => addSelect() } text="+"/>
+            <Button onClick={() => removeSelect()} text="-" type="negative" />
         </S.Container>
     )
 }

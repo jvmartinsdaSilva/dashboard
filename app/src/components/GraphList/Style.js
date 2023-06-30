@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const List = styled.ul`
     margin: .5em 0;
-    height: 200px; 
+    height: 10em; 
     overflow: auto;
     color: ${props => props.theme.font.color_default};
     
