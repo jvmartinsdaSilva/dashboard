@@ -6,16 +6,16 @@ import * as Yup from "yup"
 import {useForm} from  "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 
-import { LoginUser } from "@/components/Form/Hooks/Login"
-import { setLocalStorage } from "@/Functions/LocalStorage"
+import { LoginUser } from "@/Functions/Login/Login"
+import { setLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 import Form from "@/components/Form/Form"
-import { Input } from "@/components/Form/InputForm/Input"
+import { Input } from "@/components/Inputs/InputDefault/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from "@/components/Message/Message"
 
 const schema = Yup.object().shape({
-    email: Yup.string().email("Insira um email valido").required("Campo é obrigatório"),
+    email: Yup.string().email("Insira um email valido").required("Campo obrigatório"),
     password: Yup.string().required("Campo obrigatório")
 })
 
@@ -42,7 +42,7 @@ const Login = () => {
     return(
         <Form 
         title="Login"
-        link={{toGo: "/register", info: "Cadastre-se agora"}}
+        link={{toGo: "/Register", info: "Cadastre-se agora"}}
         onSubmit={handleSubmit(handleSubmitData)}
         >
             <Input 

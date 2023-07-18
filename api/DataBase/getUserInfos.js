@@ -10,7 +10,8 @@ export class GetUserInfos{
                 return resolver({
                     name: user.userName,
                     img: user.userIMG,
-                    graphsPath: user.userGraphs
+                    graphsPath: `${user.userGraphs}/${id}` // If you are using windows, toggle: "/" FOR "\\"
+                    
                 })
             })
         })

@@ -58,6 +58,7 @@ export const createUser = async data => {
         const salt = await saltGenerator.generatSalt()
         const hash = await hashGenerator.generatHash(data.password, salt)
 
+        
         const user = [
             userId,
             data.name,
@@ -65,8 +66,8 @@ export const createUser = async data => {
             hash
         ];
         
-        await database.insertUser(user)
         await graphStorage.createStorage(userId)
+        await database.insertUser(user)
 
         return {status: 202, msg: "Usuario criado com sucesso"}
 

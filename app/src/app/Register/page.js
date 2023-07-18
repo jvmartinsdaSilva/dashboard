@@ -6,21 +6,19 @@ import * as Yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"  
 
-import { RegisterUser } from "@/components/Form/Hooks/Register"
+import { RegisterUser } from "@/Functions/Register/Register"
 
 import Form from "@/components/Form/Form"
-import { Input } from "@/components/Form/InputForm/Input"
+import { Input } from "@/components/Inputs/InputDefault/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from '@/components/Message/Message'
 
-
 const schema = Yup.object().shape({
   name: Yup.string().min(3, "No mínimo 3 letras").max(30, "No maxímo 30 caracteres").required("Nome obrigatório"),
-  email: Yup.string().email().required("O campo email é obrigatório"),
+  email: Yup.string().email("Informe um email válido").required("O campo email é obrigatório"),
   password: Yup.string().min(6, "No mínimo 6 caractéres" ).required("A senha é obrigatória"),
   confirmPassword: Yup.string().oneOf([Yup.ref("password"), null], 'As senhas não conferem').required("Campo obrigatório"),
 })
-
 
 const FormRegister = () => {
   const [serverResposne, setServeResponse] = useState()
@@ -64,7 +62,6 @@ const FormRegister = () => {
         innerRef={register("password")}
       />
       {errors.password && <Message text={errors.password.message} />}
-
 
       <Input
         placeholder="Confirme sua senha"

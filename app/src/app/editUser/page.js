@@ -8,11 +8,11 @@ import * as Yup from "yup"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 
-import { NewName } from "@/components/Form/Hooks/NewName"
+import { NewName } from "@/Functions/EditUser/NewName"
 
-import { EditPhoto } from "@/components/Form/EditPhoto/EditPhoto"
+import { EditPhoto } from "@/components/EditPhoto/EditPhoto"
 import Form from "@/components/Form/Form"
-import { Input } from "@/components/Form/InputForm/Input"
+import { Input } from "@/components/Inputs/InputDefault/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from "@/components/Message/Message"
 
@@ -30,7 +30,6 @@ const EditUser = () => {
 
     const { user } = useContext(UserContext)
     const photo = user.img
-    const photoName = photo.split("\\")[1]
 
     const handleSubmitData = async datas => {
         const res = await NewName(datas)
@@ -39,10 +38,10 @@ const EditUser = () => {
 
     return (
         <>
-            <EditPhoto photoName={photoName} userId={user.id} />
+            <EditPhoto photoName={photo} userId={user.id} />
 
             <Form onSubmit={handleSubmit(handleSubmitData)}>
-                <Input label="Novo Nome" type="text" placeholdeer="Digite o novo nome" innerRef={register("newName")}/>
+                <Input label="Novo Nome" type="text" placeholdeer="Digite o novo nome" innerRef={register("newName")} placeholder={user.name}/>
                 {errors.newName && <Message text={errors.newName.message} />}
                 <Button text="Confirmar" />
             </Form>

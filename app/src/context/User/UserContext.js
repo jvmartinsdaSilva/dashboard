@@ -1,10 +1,9 @@
-import { cleanStorage } from "@/Functions/LocalStorage";
+import { cleanStorage } from "@/Functions/LocalStorage/LocalStorage";
 
 import { createContext, useState } from "react";
 import { useRouter } from "next/navigation"
 
 import { APP_ROUTES } from "@/constants/appRoutes"
-
 
 const UserContext = createContext({})
 

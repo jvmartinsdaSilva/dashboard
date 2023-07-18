@@ -7,17 +7,18 @@ export const ToggleUserPhoto = async (req, res) => {
     if(!file) return res.status(404).json({msg: "Arquivo não encontrado"})
 
     const fileSrc  = req.file.path
+    const fileName = fileSrc.split("/")[1]
     const id = req.params.id
     
     const getUser =  new GetUserInfos
     const user = await getUser.getUserById(id)
     
-    if(user.img !== 'userImgs\\defaultUser.jpg') DeleteOld(user.img)
-
+    if(user.img !== 'defaultUser.jpg') DeleteOld(user.img)
+    
 
     try{
         const saveUser = new ModifyUser
-        await saveUser.modifyUserPhoto(id, fileSrc)
+        await saveUser.modifyUserPhoto(id, fileName)
 
         res.status(202).json({isSucess: true, msg: "Uload realizado com sucesso"})
     } catch(err){

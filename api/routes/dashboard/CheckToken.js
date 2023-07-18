@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 
-const secreet = process.env.SECRET_TOKEN
+const secreet = process.env.SECREET_TOKEN
 
 
 export const checkToken = (req, res, next) => {

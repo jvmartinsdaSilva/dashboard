@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const Container  = styled.div`
     display: flex;
     flex-direction: column;
+    align-itens: center;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-    align-items: center;
+    heigth: 100%;
 `
 
 export const MessageContainer = styled.div`
-    margin-top: calc(50% + 75px);
-    width: 80%;
+    margin-top: calc(50% - 75px);
     height: 150px;
     text-align: center;
     font-size: 1.2rem;

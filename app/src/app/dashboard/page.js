@@ -5,7 +5,7 @@ import { MenuDisplayProvider } from "@/context/MenuDisplay/MenuDispalyContext"
 
 import { DashContainer } from "@/components/DashBoardContainer/DashContainer"
 import { Menu } from "@/components/Menu/Menu"
-import { Graph } from "@/components/Graphs/Graph"
+import { GraphMain } from "@/components/Graphs/GraphMain/GraphMain"
 
 const DashBoard = () => {
     return (
@@ -13,7 +13,7 @@ const DashBoard = () => {
             <MenuDisplayProvider>
                 <DashContainer>
                     <Menu />
-                    <Graph />
+                    <GraphMain />
                 </DashContainer>
             </MenuDisplayProvider>
         </GraphProvider>

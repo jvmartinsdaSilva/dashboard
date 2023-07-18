@@ -1,4 +1,4 @@
-import { getLocalStorage } from "../LocalStorage";
+import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 
 export const checkAuthenticate = async () => {

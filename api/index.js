@@ -4,7 +4,7 @@ import cors from "cors"
 
 import { RegisterUser } from "./routes/Register.js"
 import { Login } from "./routes/Login.js"
-import { GetUser } from "./routes/dashboard/getUser.js"
+import { GetUser } from "./routes/dashboard/GetUser.js"
 import { checkToken } from "./routes/dashboard/CheckToken.js"
 import { Upload } from "./MenuImagens/UpImages.js"
 import { ToggleUserPhoto } from "./routes/toggleUserPhoto.js"

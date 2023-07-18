@@ -13,7 +13,7 @@ export const UserInfo = () => {
 
     return(
         <S.Container>
-            <S.UserPhoto image={`http://localhost:8080/files/${photoName}`}/>
+            <S.UserPhoto image={`http://localhost:8080/files/${user.img}`}/>
             <S.UserName>
                 {user.name}
                 <BtnEdit />

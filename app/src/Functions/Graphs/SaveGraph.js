@@ -1,4 +1,4 @@
-import { getLocalStorage } from "../LocalStorage";
+import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 export const SaveGraph = async graphInfos => {
     const userId = getLocalStorage("user")

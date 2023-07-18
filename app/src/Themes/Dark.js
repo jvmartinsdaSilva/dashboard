@@ -1,6 +1,6 @@
 export const DarkTheme = {
     title: "DarkTheme",
-    mediaQuery: "762px",
+    mediaQuery: "801px",
 
 
     bgColors: {

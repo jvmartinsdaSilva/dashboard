@@ -1,4 +1,4 @@
-import { getLocalStorage } from "../LocalStorage";
+import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 export const getGaphs = async () => {
     const userId = getLocalStorage("user")
@@ -6,5 +6,5 @@ export const getGaphs = async () => {
     const datas = await fetch(`http://localhost:8080/dashboard/getGraphs/${userId}`)
 
     const graphs = await datas.json()
-    return graphs
+    return graphs.graphs
 }

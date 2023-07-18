@@ -1,11 +1,11 @@
 export const LightTheme = {
     title: "LighTheme",
 
-    mediaQuery: "760px",
+    mediaQuery: "801px",
 
     bgColors: {
-        bgColor1: "#F5EFFF",
-        bgColor2: "#CDC1FF"
+        bgColor2: "#F5EFFF",
+        bgColor1: "#CDC1FF"
     },
 
     primary: {

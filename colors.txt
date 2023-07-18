@@ -1,4 +1,4 @@
-LighColors: 
+LightColors: 
     #222222 - TextColors
     #F5EFFF - BgColors1
     #CDC1FF - Bgcolors2

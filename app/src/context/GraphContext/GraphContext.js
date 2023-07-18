@@ -9,11 +9,10 @@ export const GraphContext = createContext({
     graphMethods: {},
 })
 
-
 export const GraphProvider = ({ children }) => {
     const {user} = useContext(UserContext)
 
-    const [allGraphs, setAllGraphs] = useState(user.graphs)//Lembrete, modificar para salvar todos os gráficos OU adicionar um aviso de que o gráfico tem modificações não salva
+    const [allGraphs, setAllGraphs] = useState(user.graphs)
     const [graph, setGraph] = useState()
 
     class graphMethods{
@@ -112,29 +111,12 @@ export const GraphProvider = ({ children }) => {
 
         }
 
-        // addDataset = () => {
-        //     const newDataset = createDefaultDataset()
-        //     const datasets = graph.datas.datasets 
-        //     datasets.unshift(newDataset)
-
-        //     const newGraph = {
-        //         header: graph.header,
-        //         datas: {
-        //             labels: graph.datas.labels,
-        //             datasets: datasets
-        //         },
-        //     }
-        //     setGraph(newGraph)
-
-        // }
-
         getDataset = (id) => {
             const datasets = graph.datas.datasets
             const dataset = datasets.filter(data => data.id === id)
             return dataset[0]
         }
     }
-
 
     return (
         <GraphContext.Provider value={{ allGraphs: allGraphs, graphOn: graph, graphMethods}}>
