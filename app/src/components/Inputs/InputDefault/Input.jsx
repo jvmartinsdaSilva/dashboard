@@ -15,9 +15,9 @@ export const Input = (
     const labelId = useId()
     return (
         <>
-            <S.Container color={color} width={width}>
+            <S.Container  color={color} width={width}>
                 {<S.Label htmlFor={labelId}>{label}</S.Label>}
-                <S.Input {...innerRef}  type={type} id={labelId} {...rest}/>
+                <S.Input  autoComplete="off"  type={type} id={labelId} {...innerRef}  {...rest}/>
             </S.Container>
 
         </>

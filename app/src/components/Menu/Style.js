@@ -3,13 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: start;
     width: 300px;
-    height: 100vh;
+    height: 100%;
     background: ${props => props.theme.bgColors.bgColor1};
     padding: 0 0 .6em 0 ;
 
     button{
-        margin: 0 2em;
+        margin: 0 1em;
     }
 
     @media  (max-width: ${props => props.theme.mediaQuery}){

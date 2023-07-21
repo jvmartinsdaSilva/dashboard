@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 80%;
-    margin: 1em auto;
+    margin: 1.25em auto;
     padding: .5em;
+    height: 200px;
 
     h2{
       font-size: 16px;
@@ -12,7 +13,7 @@ export const Container = styled.div`
 
 export const List = styled.ul`
     margin: .5em 0;
-    height: 6em;
+    height: 80%;
     overflow: auto;
     color: ${props => props.theme.font.color_default};
     
@@ -27,10 +28,6 @@ export const List = styled.ul`
       border-radius: 10px;
     }
 
-    @media (max-width: ${props => props.theme.mediaQuery}){
-        margin: 0;
-        height: 4em;
-    }
 
 `
 

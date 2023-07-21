@@ -1,13 +1,12 @@
 "use client"
 import { useState } from "react"
+import {useForm} from  "react-hook-form"
 import { useRouter } from "next/navigation"
 
 import * as Yup from "yup"
-import {useForm} from  "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 
 import { LoginUser } from "@/Functions/Login/Login"
-import { setLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 import Form from "@/components/Form/Form"
 import { Input } from "@/components/Inputs/InputDefault/Input"
@@ -32,11 +31,7 @@ const Login = () => {
         const login = await  LoginUser(datas)
         setServeMessage(login.msg)
 
-        if(login.token){
-            setLocalStorage("token", login.token)
-            setLocalStorage("user", login.id)
-            push("/dashboard")
-        }  
+        if(login.token) push("/dashboard") 
     }
 
     return(

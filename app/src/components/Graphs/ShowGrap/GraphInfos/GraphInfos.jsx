@@ -3,7 +3,7 @@ import { GraphViewer } from "../GraphViewer/GraphViewer"
 
 import * as S from "./Style"
 
-export const ShowGraph = ({ graphInfos }) => {
+export const GraphInfos = ({ graphInfos }) => {
     const graphType = graphInfos?.header.type
     const datas = graphInfos?.datas
 

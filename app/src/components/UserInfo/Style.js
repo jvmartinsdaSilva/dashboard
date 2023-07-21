@@ -25,10 +25,11 @@ export const UserPhoto = styled.div`
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url(${props => props.image});
+        pointer-events: none;
 
 `
 
-export const UserName = styled.div`
+export const UserName = styled.span`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -36,6 +37,6 @@ export const UserName = styled.div`
     padding: .25em;
     padding-left: 26%;
     width: 100%;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bolder;
 `

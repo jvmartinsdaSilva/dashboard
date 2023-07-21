@@ -69,10 +69,10 @@ export const createUser = async data => {
         await graphStorage.createStorage(userId)
         await database.insertUser(user)
 
-        return {status: 202, msg: "Usuario criado com sucesso"}
+        return {status: 202, success: true, msg: "Usuario criado com sucesso"}
 
     } catch (err) {
         console.log(err)
-        return {status: 500, msg: err.err, }
+        return {status: 500, success: false , msg: err.err, }
     }
 }

@@ -1,12 +1,14 @@
 "use client"
 
 import { useState } from 'react'
+import { useRouter } from "next/navigation"
 
 import * as Yup from 'yup'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"  
 
 import { RegisterUser } from "@/Functions/Register/Register"
+import {LoginUser} from "@/Functions/Login/Login"
 
 import Form from "@/components/Form/Form"
 import { Input } from "@/components/Inputs/InputDefault/Input"
@@ -21,6 +23,7 @@ const schema = Yup.object().shape({
 })
 
 const FormRegister = () => {
+  const {push} = useRouter()
   const [serverResposne, setServeResponse] = useState()
 
   const { register, handleSubmit, formState: { errors } } = useForm({
@@ -31,6 +34,12 @@ const FormRegister = () => {
   const handleSubmitData = async datas => {
     const register = await RegisterUser(datas)
     setServeResponse(register)
+    
+    if(register.sucess){
+      const {email, password} = datas
+      const login = await LoginUser({email, password})
+      if(login.token) push("/dashboard") 
+    }
   }
 
   return (
