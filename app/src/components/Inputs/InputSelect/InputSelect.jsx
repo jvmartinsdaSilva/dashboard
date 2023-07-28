@@ -1,8 +1,8 @@
-import * as S from "./syle"
+import {useId, React } from "react"
 
-import {useId } from "react"
 import { Button } from "@/components/Buttons/ButtonsMenu/Button"
 
+import * as S from "./syle"
 
 const Option = ({ id, label }) => {
     return <S.Option value={id}>{label}</S.Option>

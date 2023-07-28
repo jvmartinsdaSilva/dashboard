@@ -9,8 +9,6 @@ import { checkIsPublicRouter } from '@/Functions/Routes/isPublicRouter'
 import { PrivateRouter } from '@/components/PrivateRouter/PrivateRouter'
 import { UserProvider } from '../context/User/UserContext'
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 const metadata = {

@@ -1,3 +1,5 @@
+import React from "react"
+
 import { BurgerButton } from "@/components/Buttons/BurgerButton/BurgerButon"
 import { GraphViewer } from "../GraphViewer/GraphViewer"
 

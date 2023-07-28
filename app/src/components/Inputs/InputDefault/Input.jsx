@@ -1,4 +1,4 @@
-import { useId } from "react"
+import { useId, React } from "react"
 import * as S from "./style.js"
 
 

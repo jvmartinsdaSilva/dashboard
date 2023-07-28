@@ -1,7 +1,6 @@
 "use client"
 
-import React from 'react'
-import { useState } from 'react'
+import { useState, React } from 'react'
 import { useRouter } from "next/navigation"
 
 import * as Yup from 'yup'

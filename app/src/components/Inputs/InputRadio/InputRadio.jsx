@@ -1,7 +1,6 @@
+import { useId, React } from "react"
+
 import * as S from "./style"
-
-
-import { useId } from "react"
 
 export const InputRadio = ({label, name, check, ...rest}) => {
     const labelId = useId()

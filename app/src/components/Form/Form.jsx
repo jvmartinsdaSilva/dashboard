@@ -1,3 +1,5 @@
+import React from "react"
+
 import { LinkComponent } from '../LinkComponent/LinkComponent'
 
 import * as S from './style.js'

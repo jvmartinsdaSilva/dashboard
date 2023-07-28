@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, React } from "react"
 
 import { GraphContext } from "@/context/GraphContext/GraphContext"
 import { MenuDisplayContext } from "@/context/MenuDisplay/MenuDispalyContext"

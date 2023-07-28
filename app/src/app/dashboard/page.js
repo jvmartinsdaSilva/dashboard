@@ -1,4 +1,5 @@
 "use client"
+import React from "react"
 
 import { GraphProvider } from "@/context/GraphContext/GraphContext"
 import { MenuDisplayProvider } from "@/context/MenuDisplay/MenuDispalyContext"
