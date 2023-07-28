@@ -25,6 +25,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <title>Dashboard</title>
+      </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <ThemeProvider>
           {isPublicRouter && children}
