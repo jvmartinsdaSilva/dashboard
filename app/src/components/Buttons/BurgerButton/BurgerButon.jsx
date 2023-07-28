@@ -6,7 +6,7 @@ import * as S from "./style"
 
 export const BurgerButton = () => {
     const { toggleDisplay } = useContext(MenuDisplayContext)
-    //teste
+    //teste2
     return (
         <S.Container>
             <S.Button onClick={() => toggleDisplay()}>
