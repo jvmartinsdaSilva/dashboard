@@ -7,7 +7,7 @@ export const Container = styled.form`
     width: 60%;
     background: ${props => props.theme.bgColors.bgColor1};
     border-radius: 10px;
-    margin: 1em auto;
+    margin: 3em auto;
     padding: 1.25em;
 `
 
