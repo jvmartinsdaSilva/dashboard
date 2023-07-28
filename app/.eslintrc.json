@@ -5,7 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended"m
+        "plugin:react/jsx-runtime"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -13,8 +14,7 @@
     },
     "plugins": [
         "react",
-        "react-hooks",
-        "plugin:react/jsx-runtime"
+        "react-hooks"
     ],
     "rules": {},
     "settings": {
