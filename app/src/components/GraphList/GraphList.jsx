@@ -26,9 +26,9 @@ export const GraphList = () => {
                 {console.log(graphs)}
                 {graphs?.map((graph => (
                     <S.Item
-                        key={graph.header.id}
+                        key={graph?.header?.id}
                         onClick={() => showGraph(graph)}>
-                        {graph.header.title}
+                        {graph?.header?.title}
                     </S.Item>
                 )))}
             </S.List>

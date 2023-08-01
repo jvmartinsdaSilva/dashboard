@@ -33,7 +33,7 @@ export const GraphMenu = () => {
         const save = await SaveGraph(graphOn)
         messgeMenu(save)
         const graphsAtt = await getGaphs()
-        graphMethod.attGraphs(graphsAtt.graphs)
+        graphMethod.attGraphs(graphsAtt)
     }
 
 

@@ -12,11 +12,11 @@ export const Login = async (req, res) => {
     const {passwordIsValid: isAuthenticate} = checkUser
     if(!isAuthenticate.authenticate) return res.status(isAuthenticate.status).json({msg: isAuthenticate.msg})
 
-    const user = checkUser.user[0]
-    const token = GenerateToken(user.userId)
+    const user = checkUser?.user
+    const token = GenerateToken(user._id)
 
     return res.status(200).json({
-        id: user.userId,
+        id: user._id,
         token
     })
 }

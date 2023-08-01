@@ -29,7 +29,7 @@ const EditUser = () => {
     const {push} = useRouter()
 
     const { user } = useContext(UserContext)
-    const photo = user.img
+    const userImg = user.img
 
     const handleSubmitData = async datas => {
         const res = await NewName(datas)
@@ -38,8 +38,7 @@ const EditUser = () => {
 
     return (
         <>
-            <EditPhoto photoName={photo} userId={user.id} />
-
+            <EditPhoto photoName={userImg} userId={user.id} />
             <Form onSubmit={handleSubmit(handleSubmitData)}>
                 <Input label="Novo Nome" type="text" placeholdeer="Digite o novo nome" innerRef={register("newName")} placeholder={user.name}/>
                 {errors.newName && <Message text={errors.newName.message} />}

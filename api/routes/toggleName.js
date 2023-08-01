@@ -1,5 +1,5 @@
-import { GetUserInfos } from "../DataBase/getUserInfos.js";
-import { ModifyUser } from "../DataBase/modifyUser.js";
+import { GetUserInfos } from "../DataBase/User/getUserInfos.js";
+import { ModifyUser } from "../DataBase/User/modifyUser.js";
 
 export const ToggleName = async (req, res) => {
     const newNameUser = req.body.newName

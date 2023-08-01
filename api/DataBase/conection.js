@@ -1,9 +1,6 @@
 import 'dotenv/config'
-import mysql from 'mysql'
+import {MongoClient} from "mongodb"
 
-export const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: process.env.PASSWORD_DB,
-    database: 'dashboard'
-})
+const url = process.env.MONGO_URL
+export const client = new MongoClient(url)
+

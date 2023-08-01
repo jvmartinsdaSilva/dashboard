@@ -1,4 +1,4 @@
-import { createUser } from '../DataBase/createUser.js'
+import { createUser } from '../DataBase/User/createUser.js'
 import { ValidationUser } from '../Methods/ValidationUser.js'
 
 export const RegisterUser = async (req, res) => {

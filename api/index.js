@@ -9,7 +9,7 @@ import { checkToken } from "./routes/dashboard/CheckToken.js"
 import { Upload } from "./MenuImagens/UpImages.js"
 import { ToggleUserPhoto } from "./routes/toggleUserPhoto.js"
 import { ToggleName } from "./routes/toggleName.js"
-import { CreateGraph } from "./routes/dashboard/CreateGraph.js"
+import { SaveGraphs } from "./routes/dashboard/SaveGraphs.js"
 import { GetGraphs } from "./routes/dashboard/GetGraphs.js"
 
 const app = express()
@@ -21,7 +21,7 @@ app.post("/register", RegisterUser)
 app.post("/login", Login)
 app.get("/dashboard/:id", checkToken, GetUser)
 
-app.post("/dashboard/createGraph/:id", CreateGraph)
+app.post("/dashboard/saveGraphs/:id", SaveGraphs)
 app.get("/dashboard/getGraphs/:id", GetGraphs)
 
 app.post("/toggleName/:id", checkToken, ToggleName)

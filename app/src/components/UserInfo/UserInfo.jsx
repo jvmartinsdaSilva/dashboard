@@ -7,10 +7,12 @@ import * as S from "./Style"
 
 export const UserInfo = () => {
     const { user } = useContext(UserContext)
+    const userImg = user.img
+    
 
     return(
         <S.Container>
-            <S.UserPhoto image={`http://localhost:8080/files/${user.img}`}/>
+            <S.UserPhoto image={`http://localhost:8080/files/${userImg}`}/>
             <S.UserName>
                 {user.name}
                 <BtnEdit />

@@ -1,5 +1,5 @@
-import { ModifyUser} from "../DataBase/modifyUser.js"
-import { GetUserInfos } from "../DataBase/getUserInfos.js"
+import { ModifyUser} from "../DataBase/User/modifyUser.js"
+import { GetUserInfos } from "../DataBase/User/getUserInfos.js"
 import { DeleteOld } from "../MenuImagens/DeleteOld.js"
 
 export const ToggleUserPhoto = async (req, res) => {
@@ -12,14 +12,14 @@ export const ToggleUserPhoto = async (req, res) => {
     
     const getUser =  new GetUserInfos
     const user = await getUser.getUserById(id)
+    if(user.userImg !== "defaultUser.jpg") DeleteOld(user.userImg)
     
-    if(user.img !== 'defaultUser.jpg') DeleteOld(user.img)
     
-
     try{
         const saveUser = new ModifyUser
         await saveUser.modifyUserPhoto(id, fileName)
-
+        console.log(fileSrc)
+        
         res.status(202).json({isSucess: true, msg: "Uload realizado com sucesso"})
     } catch(err){
         return {isSucess: false, msm: err}

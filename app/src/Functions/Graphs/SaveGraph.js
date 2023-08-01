@@ -6,7 +6,7 @@ export const SaveGraph = async graphInfos => {
     
 
 
-    const data = await fetch(`http://localhost:8080/dashboard/createGraph/${userId}`, {
+    const data = await fetch(`http://localhost:8080/dashboard/saveGraphs/${userId}`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
