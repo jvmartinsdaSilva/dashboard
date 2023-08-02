@@ -1,0 +1,49 @@
+# Query: const apiUrl
+# ContextLines: 1
+
+9 results - 9 files
+
+app/src/components/EditPhoto/EditPhoto.jsx:
+  29      const [edit, setEdit] = useState(false)
+  30:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  31  
+
+app/src/components/UserInfo/UserInfo.jsx:
+  10      const userImg = user.img
+  11:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  12      
+
+app/src/Functions/Authenticate/checkIsAuthenticate.js:
+  5  export const checkAuthenticate = async () => {
+  6:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  7      const token = getLocalStorage("token")
+
+app/src/Functions/EditUser/NewName.js:
+  4  export const NewName = async datas => {
+  5:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  6  
+
+app/src/Functions/EditUser/UpLoadPhoto.js:
+  5  export const UploadPhoto = async (photo) => {
+  6:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  7  
+
+app/src/Functions/Graphs/GetGraphs.js:
+  4  export const getGaphs = async () => {
+  5:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  6  
+
+app/src/Functions/Graphs/SaveGraph.js:
+  4  export const SaveGraph = async graphInfos => {
+  5:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  6      
+
+app/src/Functions/Login/Login.js:
+  4  const login = async userData => {
+  5:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  6      
+
+app/src/Functions/Register/Register.js:
+  2  export const RegisterUser  = async datas => {
+  3:     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+  4      

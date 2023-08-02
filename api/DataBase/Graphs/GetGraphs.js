@@ -2,24 +2,21 @@ import { client } from "../conection.js"
 
 
 class GetGraphs{
-    getById(graphId){
+    getByUserId(userId){
         return new Promise(async(resolve, reject) => {
             await client.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
             const db = client.db("dashboard")
             const collection = db.collection("graphs")
-            const graph = await collection.findOne({_id: graphId})
+            const graph = await collection.findOne({ownerUser: userId})
             return resolve(graph)
         })
     }
 }
 
-export const GetGraphInfos = async (graphsId) => {
-    const graphs = []
+export const GetGraphInfos = async userId => {
     const getGraphs = new GetGraphs()
+    const graphs = await getGraphs.getByUserId(userId)
+    
 
-    for(const graphId of graphsId){
-        const graph = await getGraphs.getById(graphId)
-        graphs.push(graph.graph)
-    }
     return graphs
 }

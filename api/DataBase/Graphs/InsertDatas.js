@@ -20,7 +20,7 @@ export class InsertDatas{
             this.connect()
 
             await modifyUser.addGraph(graphId, userId)
-            await this.collection.insertOne({_id: graphId, graph: graphInfos})
+            await this.collection.insertOne({_id: graphId, ownerUser:userId , graph: graphInfos})
                 .then(() => resolve({msg: "Dados salvos com sucesso"}))
                 .catch(err => reject({msg: "Desculpe não conseguimos salvar", err}))
             
