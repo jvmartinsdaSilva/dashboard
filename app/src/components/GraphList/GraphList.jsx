@@ -7,6 +7,7 @@ import { Message } from "../Message/Message"
 
 import * as S from "./Style"
 
+
 export const GraphList = () => {
     const { allGraphs: graphs, graphMethods } = useContext(GraphContext)
     const {toggleDisplay} = useContext(MenuDisplayContext)
@@ -17,14 +18,13 @@ export const GraphList = () => {
         graphMethod.toggleGraph(graph)
         toggleDisplay()
     }
-
+    const allGraphs = graphs.map(infoGraphs => infoGraphs.graph)
     return (
         <S.Container>
             <h2>Seus Gráficos</h2>
             <S.List>
                 {graphs?.length <= 0 && <Message text="Não há graficos" />}
-                {console.log(graphs)}
-                {graphs?.map((graph => (
+                {allGraphs?.map((graph => (
                     <S.Item
                         key={graph?.header?.id}
                         onClick={() => showGraph(graph)}>
