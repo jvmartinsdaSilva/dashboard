@@ -1,12 +1,15 @@
+import "dotenv/config"
 import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 export const SaveGraph = async graphInfos => {
+    const apiUrl = process.env.API_URL
+    
     const userId = getLocalStorage("user")
     const graphId = graphInfos.header.id
     
 
 
-    const data = await fetch(`http://localhost:8080/dashboard/saveGraphs/${userId}`, {
+    const data = await fetch(`${apiUrl}/dashboard/saveGraphs/${userId}`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",

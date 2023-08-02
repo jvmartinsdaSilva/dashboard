@@ -1,13 +1,15 @@
+import 'dotenv/config'
 import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 
 export const checkAuthenticate = async () => {
+    const apiUrl = process.env.API_URL
     const token = getLocalStorage("token")
     const id = getLocalStorage("user")
 
     if(!token || !id) return {authenticate: false , msg: ""}
 
-    const isAuthenticate = await fetch(`http://localhost:8080/dashboard/${id}`, {
+    const isAuthenticate = await fetch(`${apiUrl}/dashboard/${id}`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${token}`

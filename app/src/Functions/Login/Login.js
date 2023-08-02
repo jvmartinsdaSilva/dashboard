@@ -1,9 +1,11 @@
+import "dotenv/config"
 import { setLocalStorage } from "../LocalStorage/LocalStorage"
 
 const login = async userData => {
-    setLocalStorage("teste2", "teste")
+    const apiUrl = process.env.API_URL
+    
     try{
-        const data = await fetch("http://localhost:8080/login", {
+        const data = await fetch(`${apiUrl}/login`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

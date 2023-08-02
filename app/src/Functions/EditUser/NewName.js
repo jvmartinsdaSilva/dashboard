@@ -1,10 +1,13 @@
+import 'dotenv/config'
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage";
 
 export const NewName = async datas => {
+    const apiUrl = process.env.API_URL
+
     const token = getLocalStorage("token")
     const userId = getLocalStorage("user")
 
-    const data = await fetch(`http://localhost:8080/toggleName/${userId}`, {
+    const data = await fetch(`${apiUrl}/toggleName/${userId}`, {
 
         method: "POST",
         headers: {

@@ -1,6 +1,10 @@
+import 'dotenv/config'
+
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 export const UploadPhoto = async (photo) => {
+    const apiUrl = process.env.API_URL
+
     const formData = new FormData()
     formData.append("avatar", photo )
     console.log("ola")
@@ -9,7 +13,7 @@ export const UploadPhoto = async (photo) => {
     console.log(token)
 
     try{
-        const data = await fetch(`http://localhost:8080/togglePhoto/${userId}`, {
+        const data = await fetch(`${apiUrl}/togglePhoto/${userId}`, {
             method: "POST",
             headers: {
                 'Authorization': `Bearer ${token}`

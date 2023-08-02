@@ -1,6 +1,8 @@
+import "dotenv/config"
 export const RegisterUser  = async datas => {
-    const url = "http://localhost:8080/register"
-    const data = await fetch("http://localhost:8080/register", {
+    const apiUrl = process.env.API_URL
+    
+    const data = await fetch(`${apiUrl}/register`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
