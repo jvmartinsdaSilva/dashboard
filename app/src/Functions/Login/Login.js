@@ -2,7 +2,7 @@ import "dotenv/config"
 import { setLocalStorage } from "../LocalStorage/LocalStorage"
 
 const login = async userData => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     
     try{
         const data = await fetch(`${apiUrl}/login`, {

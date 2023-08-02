@@ -3,7 +3,7 @@ import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 
 export const checkAuthenticate = async () => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     const token = getLocalStorage("token")
     const id = getLocalStorage("user")
 

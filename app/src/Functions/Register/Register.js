@@ -1,6 +1,6 @@
 import "dotenv/config"
 export const RegisterUser  = async datas => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     
     const data = await fetch(`${apiUrl}/register`, {
         method: "POST",

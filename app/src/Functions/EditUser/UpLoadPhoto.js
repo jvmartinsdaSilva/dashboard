@@ -3,7 +3,7 @@ import 'dotenv/config'
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 export const UploadPhoto = async (photo) => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
 
     const formData = new FormData()
     formData.append("avatar", photo )

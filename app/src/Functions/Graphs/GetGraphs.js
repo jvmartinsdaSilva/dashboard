@@ -2,7 +2,7 @@ import "dotenv/config"
 import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 export const getGaphs = async () => {
-    const apiUrl = process.env.API_URL
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
 
     const userId = getLocalStorage("user")
 
