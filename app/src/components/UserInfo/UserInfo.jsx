@@ -8,11 +8,12 @@ import * as S from "./Style"
 export const UserInfo = () => {
     const { user } = useContext(UserContext)
     const userImg = user.img
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     
 
     return(
         <S.Container>
-            <S.UserPhoto image={`http://localhost:8080/files/${userImg}`}/>
+            <S.UserPhoto image={`${apiUrl}/files/${userImg}`}/>
             <S.UserName>
                 {user.name}
                 <BtnEdit />

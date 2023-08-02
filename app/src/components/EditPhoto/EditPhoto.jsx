@@ -27,7 +27,9 @@ export const EditPhoto = ({ photoName }) => {
     const [photoPreview, setPhotoPreview] = useState()
     const [newPhoto, setNewPhoto] = useState()
     const [edit, setEdit] = useState(false)
-    const nowPhoto = `http://localhost:8080/files/${photoName}`
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+
+    const nowPhoto = `${apiUrl}/files/${photoName}`
 
     const previewPhoto = inputInfos => {
         const reader = new FileReader()

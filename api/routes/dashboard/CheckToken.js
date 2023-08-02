@@ -9,7 +9,8 @@ export const checkToken = (req, res, next) => {
     if(!token) return res.status(404).json({tokenDenied: true, msg: "Acesso negado"})
 
     try{
-        jwt.verify(token, id)
+        const secret = `${process.env.SECRET_TOKEN}${id}`
+        jwt.verify(token, secret)
         next()
     } catch(err){
         return res.status(404).json({tokenDenied: true, msg: "Tolken invalido"})
