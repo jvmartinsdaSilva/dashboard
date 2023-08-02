@@ -8,7 +8,7 @@ export const GetUser = async (req, res) => {
         const user = await getUser.getUserById(id)
         const { graphsId } = user
 
-        const graphs = await GetGraphInfos(graphsId)
+        const graphs = await GetGraphInfos(id)
 
         return res.json({
             name: user.name,
