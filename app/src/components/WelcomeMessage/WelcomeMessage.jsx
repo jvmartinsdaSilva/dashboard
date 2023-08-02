@@ -3,7 +3,6 @@ import { useContext, React } from "react"
 import { GraphContext } from "@/context/GraphContext/GraphContext"
 import { MenuDisplayContext } from "@/context/MenuDisplay/MenuDispalyContext"
 
-import { BurgerButton } from "../Buttons/BurgerButton/BurgerButon"
 import { Button } from "../Buttons/DefaultButton/Button"
 import * as S from "./style"
 
