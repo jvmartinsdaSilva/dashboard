@@ -25,7 +25,6 @@ export const GraphInfos = ({ graphInfos }) => {
 
     return (
         <S.Container>
-            <BurgerButton />
             <S.Header>
                 <S.Title>{graphInfos?.header.title}</S.Title>
                 <S.Description>{graphInfos?.header.description}</S.Description>

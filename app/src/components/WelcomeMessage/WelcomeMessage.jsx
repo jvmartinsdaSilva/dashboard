@@ -19,7 +19,6 @@ export const WelcomeMessage = () => {
 
     return(
         <S.Container>
-            <BurgerButton/>
             <S.MessageContainer>
                 <h2>COMEÇE A CRIAR AGORA MESMO!</h2>
                 <Button text="Novo gráfico" onClick={() => showGraph()}/>

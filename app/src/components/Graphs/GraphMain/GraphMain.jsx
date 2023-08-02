@@ -3,7 +3,8 @@ import { GraphContext } from "@/context/GraphContext/GraphContext"
 
 import { WelcomeMessage } from "../../WelcomeMessage/WelcomeMessage"
 import { GraphMenu } from "../GraphOptions/GraphMenu/GraphMenu"
-import {GraphInfos } from "../ShowGrap/GraphInfos/GraphInfos"
+import { GraphInfos } from "../ShowGrap/GraphInfos/GraphInfos"
+import { BurgerButton } from "@/components/Buttons/BurgerButton/BurgerButon"
 
 import * as S from "./Style"
 
@@ -13,6 +14,7 @@ export const GraphMain = () => {
 
     return (
         <S.Container>
+            <BurgerButton />
             {graph && (
                 <>
                     <GraphInfos graphInfos={graph} />
