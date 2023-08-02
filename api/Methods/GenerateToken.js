@@ -7,7 +7,7 @@ export const GenerateToken =  id => {
     try{
         const token =  jwt.sign({
             id,
-        }, secret, {expiresIn: 10800})
+        }, id, {expiresIn: 10800})
         return token
     } catch(err){
         return err
