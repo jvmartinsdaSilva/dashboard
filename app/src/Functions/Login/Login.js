@@ -3,7 +3,7 @@ import { setLocalStorage } from "../LocalStorage/LocalStorage"
 import { set } from "react-hook-form"
 
 const login = async userData => {
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com/login"
     
     try{                                          
         const data = await fetch(apiUrl, {
