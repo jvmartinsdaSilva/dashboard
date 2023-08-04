@@ -11,8 +11,9 @@ export const checkToken = (req, res, next) => {
     try{
         const secret = `${process.env.SECRET_TOKEN}${id}`
         jwt.verify(token, secret)
-        next()
+        return res.status(404).json({acess: true})
+        
     } catch(err){
-        return res.status(404).json({tokenDenied: true, msg: "Tolken invalido"})
+        return res.status(404).json({acess: false, msg: "Tolken invalido"})
     }   
 }

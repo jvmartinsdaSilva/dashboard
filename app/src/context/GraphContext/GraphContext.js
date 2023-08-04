@@ -106,7 +106,6 @@ export const GraphProvider = ({ children }) => {
                     datasets: newDatasets
                 },
             }
-            console.log("ola2")
             setGraph(newGraph)
 
         }

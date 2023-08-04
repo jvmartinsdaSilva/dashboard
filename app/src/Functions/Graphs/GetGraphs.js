@@ -4,7 +4,7 @@ import { getLocalStorage } from "../LocalStorage/LocalStorage";
 export const getGaphs = async () => {
     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
 
-    const userId = getLocalStorage("user")
+    const userId = getLocalStorage("id")
 
     const datas = await fetch(`${apiUrl}/dashboard/getGraphs/${userId}`)
     const res = await datas.json()

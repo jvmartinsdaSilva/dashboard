@@ -2,13 +2,12 @@ import "dotenv/config"
 import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 export const SaveGraph = async graphInfos => {
+    // const apiUrl = "http://localhost:8080"
     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     
-    const userId = getLocalStorage("user")
+    const userId = getLocalStorage("id")
     const graphId = graphInfos.header.id
     
-
-
     const data = await fetch(`${apiUrl}/dashboard/saveGraphs/${userId}`, {
         method: "POST",
         headers: {

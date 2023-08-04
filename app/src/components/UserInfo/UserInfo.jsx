@@ -9,8 +9,8 @@ export const UserInfo = () => {
     const { user } = useContext(UserContext)
     const userImg = user.img
     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
+    // const apiUrl = "http://localhost:8080"
     
-
     return(
         <S.Container>
             <S.UserPhoto image={`${apiUrl}/files/${userImg}`}/>

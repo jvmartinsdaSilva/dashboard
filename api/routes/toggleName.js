@@ -12,9 +12,9 @@ export const ToggleName = async (req, res) => {
 
     try{
         const modifyUser = new ModifyUser
-        const newUserName =await  modifyUser.modifyUserName(id, newNameUser)
+        const modifyName =await  modifyUser.modifyUserName(id, newNameUser)
 
-        return res.status(202).json({isSucess: true, msg: "Editado com sucesso"})
+        return res.status(202).json({isSucess: true, msg: modifyName.msg})
     } catch(err){
         res.status(404).json({isSucess: false, msg: err })
     }

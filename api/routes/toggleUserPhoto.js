@@ -14,12 +14,11 @@ export const ToggleUserPhoto = async (req, res) => {
     const user = await getUser.getUserById(id)
     if(user.userImg !== "defaultUser.jpg") DeleteOld(user.userImg)
     
-    
+
     try{
         const saveUser = new ModifyUser
         await saveUser.modifyUserPhoto(id, fileName)
-        console.log(fileSrc)
-        
+                
         res.status(202).json({isSucess: true, msg: "Uload realizado com sucesso"})
     } catch(err){
         return {isSucess: false, msm: err}

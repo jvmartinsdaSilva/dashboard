@@ -22,7 +22,7 @@ export const Authenticate = async datas => {
     const user = getUser?.results[0]
     const checkPassword = await new ComparePass().passwordValid(user, datas.password)
     return {
-        passwordIsValid: checkPassword,
+        isAuthenticate: checkPassword,
         user
     }
 }

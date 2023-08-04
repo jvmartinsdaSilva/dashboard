@@ -15,8 +15,8 @@ export const PrivateRouter = ({children}) => {
         const check = async () => {
             const data = await checkAuthenticate()
             setIsAuthenticate(data.authenticate)
-
-            data.authenticate && login(data.user)
+            
+            data.user && login(data.user)
         }
 
         check()

@@ -3,14 +3,13 @@ import 'dotenv/config'
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 export const UploadPhoto = async (photo) => {
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
-
+    
     const formData = new FormData()
     formData.append("avatar", photo )
-    console.log("ola")
-    const userId = getLocalStorage("user")
+    const userId = getLocalStorage("id")
     const token = getLocalStorage("token")
-    console.log(token)
+    // const apiUrl = "http://localhost:8080/togglePhoto/" +  userId
+    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
 
     try{
         const data = await fetch(`${apiUrl}/togglePhoto/${userId}`, {
@@ -22,7 +21,7 @@ export const UploadPhoto = async (photo) => {
         })
 
         const res = await data.json()
-        return {msg: res, sucess: res.isSucess}
+        return {msg: res.msg, sucess: res.isSucess}
     } catch(err) {
         return {err, msg: "Erro ao realizar o uplaod"}
     }

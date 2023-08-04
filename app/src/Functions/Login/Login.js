@@ -1,20 +1,21 @@
 import "dotenv/config"
 import { setLocalStorage } from "../LocalStorage/LocalStorage"
+import { set } from "react-hook-form"
 
 const login = async userData => {
     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     
-    try{
-        const data = await fetch(`${apiUrl}/login`, {
+    try{                                          
+        const data = await fetch(apiUrl, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
             },
             body: JSON.stringify(userData)
         })
-        const user = await data.json()
+        const res = await data.json()
         
-        return user
+        return res
     } catch(err) {
         return {
             err,
@@ -24,11 +25,14 @@ const login = async userData => {
 }
 
 export const LoginUser = async userDatas => {
-    const user = await login(userDatas)
-    if(user?.token){
-        setLocalStorage("token", user.token)
-        setLocalStorage("user", user.id)
+    const res = await login(userDatas)
+    const {user, token} = res
+    const userInfo = JSON.stringify(user)
+    if(res.token){
+        setLocalStorage("id", res.id)
+        setLocalStorage("token",res.token)
+        setLocalStorage("user", userInfo)
     }
 
-    return user
+    return res
 }

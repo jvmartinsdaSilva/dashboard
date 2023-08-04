@@ -16,6 +16,8 @@ class GetGraphs{
 export const GetGraphInfos = async userId => {
     const getGraphs = new GetGraphs()
     const graphs = await getGraphs.getByUserId(userId)
+
+
     
 
     return graphs

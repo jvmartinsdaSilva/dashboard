@@ -5,7 +5,7 @@ import { getLocalStorage } from "../LocalStorage/LocalStorage";
 export const checkAuthenticate = async () => {
     const apiUrl = "https://dashboardapi-bgpz.onrender.com"
     const token = getLocalStorage("token")
-    const id = getLocalStorage("user")
+    const id = getLocalStorage("id")
 
     if(!token || !id) return {authenticate: false , msg: ""}
 
@@ -16,17 +16,19 @@ export const checkAuthenticate = async () => {
         }
     })
     const data = await isAuthenticate.json()
-
-
-    if(data.tokenDenied){
+    const {acess} = data
+    if(!acess){
         return {
             authenticate: false,
             msg: data.msg
         }
     }
+    const userInfos = getLocalStorage("user")
+    const user = JSON.parse(userInfos)
 
     return{
         authenticate: true,
-        user: data
+        user
     }
+
 }

@@ -82,7 +82,6 @@ export const Dataset = () => {
     const removeData = () => {
         const dataRemove = dataSelect.id
         const datas = allDatas.filter(data => data.id !== dataRemove)
-        console.log(datas)
         modify({data: datas})
         setDataSelect(allDatas[0])
     }
