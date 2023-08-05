@@ -1,4 +1,5 @@
 import { client } from '../conection.js'
+import { GenerateToken } from '../../Methods/GenerateToken.js'
 
 import { v4 as uuid } from 'uuid'
 import bcrypt from 'bcrypt'
@@ -69,7 +70,19 @@ export const createUser = async data => {
 
         await newUser.registerInDb(user)
         console.log("finishRegister")
-        return { status: 202, success: true, msg: "Usuario criado com sucesso" }
+        //
+        return { 
+            status: 202, 
+            success: true, 
+            msg: "Usuario criado com sucesso", 
+            token: GenerateToken(user._id) ,
+            user: {
+                name: user.name, 
+                id: user._id, 
+                img: user.userImg, 
+                graphs: [], 
+            }
+        }
 
     } catch (err) {
         console.log(err)
