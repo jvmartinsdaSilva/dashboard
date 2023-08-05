@@ -14,11 +14,9 @@ class GetGraphs{
 }
 
 export const GetGraphInfos = async userId => {
+    console.log("getGraphs")
     const getGraphs = new GetGraphs()
     const graphs = await getGraphs.getByUserId(userId)
-
-
-    
 
     return graphs
 }

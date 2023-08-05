@@ -8,8 +8,8 @@ import * as S from "./Style"
 export const UserInfo = () => {
     const { user } = useContext(UserContext)
     const userImg = user.img
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
-    // const apiUrl = "http://localhost:8080"
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
+
     
     return(
         <S.Container>

@@ -36,7 +36,7 @@ const EditUser = () => {
         setServerMessage(res.msg)
         if (res.sucess) {
             const attUser = await getUserInfos(user.id)
-            console.log(attUser)
+
             login(attUser)
 
         }

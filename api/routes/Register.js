@@ -12,6 +12,7 @@ export const RegisterUser = async (req, res) => {
 
     if (!isValidUser.valid) return res.status(isValidUser.status).json({msg: isValidUser.msg})
 
+
     const create = await createUser(user)
     return res.status(create.status).json({msg: create.msg, sucess: create.success})
 }

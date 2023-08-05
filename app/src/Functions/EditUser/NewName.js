@@ -1,9 +1,8 @@
-import 'dotenv/config'
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage";
 
 export const NewName = async datas => {
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
-    // const apiUrl = "http://localhost:8080"
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
+
 
     const token = getLocalStorage("token")
     const userId = getLocalStorage("id")

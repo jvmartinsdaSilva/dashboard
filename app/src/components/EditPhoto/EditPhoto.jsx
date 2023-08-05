@@ -1,3 +1,4 @@
+
 import { useState,  useContext, React } from "react"
 
 import * as Yup from "yup"
@@ -14,6 +15,8 @@ import { BtnClose } from "@/components/Buttons/ButtonsSVG/Buttons"
 import { Message } from "@/components/Message/Message"
 
 import * as S from "./style"
+
+
 
 const schema = Yup.object().shape({
     avatar: Yup.mixed().required("Selecione uma nova foto para enviar")
@@ -32,8 +35,8 @@ export const EditPhoto = ({ photoName }) => {
     const [newPhoto, setNewPhoto] = useState()
     const [edit, setEdit] = useState(false)
     const [serverMessage, setServerMessage] = useState('')
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com"
-    // const apiUrl = "http://localhost:8080"
+
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
 
     const nowPhoto = `${apiUrl}/files/${photoName}`
 
@@ -52,6 +55,7 @@ export const EditPhoto = ({ photoName }) => {
             login(attUser)
 
         }
+        setServerMessage(res.msg)
     }
 
     return (

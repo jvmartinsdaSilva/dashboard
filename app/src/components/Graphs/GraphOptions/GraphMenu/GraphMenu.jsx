@@ -39,7 +39,6 @@ export const GraphMenu = () => {
 
     return (
         <S.Container>
-            {/* {console.log(graphOn)} */}
             <GraphHeader />
             {
                 labelsLength > 0 ?

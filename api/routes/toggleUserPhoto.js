@@ -19,7 +19,7 @@ export const ToggleUserPhoto = async (req, res) => {
         const saveUser = new ModifyUser
         await saveUser.modifyUserPhoto(id, fileName)
                 
-        res.status(202).json({isSucess: true, msg: "Uload realizado com sucesso"})
+        res.status(202).json({isSucess: true, msg: "Upload realizado com sucesso"})
     } catch(err){
         return {isSucess: false, msm: err}
     }

@@ -21,16 +21,18 @@ const schema = Yup.object().shape({
 const Login = () => {
     const {push} = useRouter()
     const [serverMessage, setServeMessage] = useState()
- 
+    
     const {register, handleSubmit, formState: {errors}} = useForm({
         mode: "onSubmit",
         resolver: yupResolver(schema)
     })
 
     const handleSubmitData = async datas => {
+        setServeMessage("")
         const login = await  LoginUser(datas)
+        console.log(login)
         setServeMessage(login.msg)
-        if(login.token) push("/dashboard") 
+        if(login.token) push("/dashboard")
     }
 
     return(

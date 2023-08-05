@@ -68,7 +68,7 @@ export const createUser = async data => {
         };
 
         await newUser.registerInDb(user)
-
+        console.log("finishRegister")
         return { status: 202, success: true, msg: "Usuario criado com sucesso" }
 
     } catch (err) {

@@ -1,12 +1,9 @@
-import "dotenv/config"
 import { setLocalStorage } from "../LocalStorage/LocalStorage"
-import { set } from "react-hook-form"
 
 const login = async userData => {
-    const apiUrl = "https://dashboardapi-bgpz.onrender.com/login"
-    
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
     try{                                          
-        const data = await fetch(apiUrl, {
+        const data = await fetch(`${apiUrl}/login`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -19,7 +16,7 @@ const login = async userData => {
     } catch(err) {
         return {
             err,
-            msg: "Desculpe não conseguimos conectar!"
+            msg: "Desculpe não conseguimos conectar"
         }
     }
 }

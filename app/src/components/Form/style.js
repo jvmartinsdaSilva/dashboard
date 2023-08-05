@@ -9,6 +9,10 @@ export const Container = styled.form`
     border-radius: 10px;
     margin: 3em auto;
     padding: 1.25em;
+
+    @media (max-width: ${props => props.theme.mediaQuery}){
+        width: 90%;
+    }
 `
 
 export const Header = styled.header`
