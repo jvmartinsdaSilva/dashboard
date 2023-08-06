@@ -30,7 +30,7 @@ export const Authenticate = async datas => {
 
     } catch (err) {
         return {
-            isAuthenticate: {authenticate: false, msg: `Erro: ${err}`}
+            isAuthenticate: {authenticate: false, msg: `Erro: ao conectar`}
         }
     }
 }
