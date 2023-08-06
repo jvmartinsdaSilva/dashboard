@@ -2,13 +2,18 @@ import { client } from "../conection.js"
 
 
 class GetGraphs{
+    constructor()
+    {
+        this.connect = () => client.connect()
+        this.db = client.db("dashboard")
+        this.collection = this.db.collection("graphs")
+    }
     getByUserId(userId){
         return new Promise(async(resolve, reject) => {
-            await client.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
-            const db = client.db("dashboard")
-            const collection = db.collection("graphs")
-            const graph = await collection.find({ownerUser: userId}).toArray()
-            return resolve(graph)
+            await this.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
+
+            const graphs = this.collection.find({$text: {$search: userId}}).toArray()
+            return resolve(graphs)
         })
     }
 }
