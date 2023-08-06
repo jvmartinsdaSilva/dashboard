@@ -4,15 +4,15 @@ import { client } from "../conection.js"
 class GetGraphs{
     constructor()
     {
-        this.connect = () => client.connect()
+        this.connect = () => client.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
         this.db = client.db("dashboard")
         this.collection = this.db.collection("graphs")
     }
     getByUserId(userId){
         return new Promise(async(resolve, reject) => {
-            await this.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
-
-            const graphs = this.collection.find({$text: {$search: userId}}).toArray()
+            await this.connect()   
+            const graphs = this.collection.find({ownerUser: userId}).toArray()
+            console.log(graphs)
             return resolve(graphs)
         })
     }
