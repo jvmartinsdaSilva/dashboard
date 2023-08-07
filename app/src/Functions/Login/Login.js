@@ -23,12 +23,14 @@ const login = async userData => {
 
 export const LoginUser = async userDatas => {
     const res = await login(userDatas)
-    const {user, token} = res
+    const {user, token, id, graphs} = res
     const userInfo = JSON.stringify(user)
+    const graphsInfo = JSON.stringify(graphs)
     if(res.token){
-        setLocalStorage("id", res.id)
-        setLocalStorage("token",res.token)
+        setLocalStorage("id", id)
+        setLocalStorage("token", token)
         setLocalStorage("user", userInfo)
+        setLocalStorage("graphs", graphsInfo)
     }
 
     return res

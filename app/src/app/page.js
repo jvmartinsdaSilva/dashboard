@@ -30,7 +30,6 @@ const Login = () => {
     const handleSubmitData = async datas => {
         setServeMessage("")
         const login = await  LoginUser(datas)
-        console.log(login)
         setServeMessage(login.msg)
         if(login.token) push("/dashboard")
     }

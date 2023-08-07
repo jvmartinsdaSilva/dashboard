@@ -10,11 +10,10 @@ export const Login = async (req, res) => {
         email: req.body.email,
         password: req.body.password
     }
-    if(!datas.email || !datas.password) return res.status(401).json("Prencha corretamente os campos")
+    if (!datas.email || !datas.password) return res.status(401).json("Prencha corretamente os campos")
 
     const checkUser = await Authenticate(datas)
-    const {isAuthenticate} = checkUser
-    if(!isAuthenticate.authenticate) return res.status(isAuthenticate.status).json({msg: isAuthenticate.msg})
+    if (!checkUser.authenticate) return res.status(checkUser.status).json({ msg: checkUser.msg })
 
     const userInfos = checkUser?.user
     const token = GenerateToken(userInfos._id)
@@ -25,14 +24,11 @@ export const Login = async (req, res) => {
         name: userInfos.name,
         id: userInfos._id,
         img: userInfos.userImg,
-        graphs
     }
-
-    console.log("Finishing")
-
     return res.status(200).json({
         id: userInfos._id,
         user,
-        token
+        token,
+        graphs
     })
 }

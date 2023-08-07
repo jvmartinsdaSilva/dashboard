@@ -35,11 +35,7 @@ const FormRegister = () => {
     const register = await RegisterUser(datas)
     setServeResponse(register.msg)
     if(register.sucess){
-      const {user} = register
-      const userInfo = JSON.stringify(user)
-      setLocalStorage("id", register.user.id)
-      setLocalStorage("token",register.token)
-      setLocalStorage("user", userInfo)
+      console.log(register)
       push("/dashboard") 
     }
   }

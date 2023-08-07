@@ -2,6 +2,7 @@ import { createContext, useState, useContext } from "react";
 import { UserContext } from "../User/UserContext";
 
 import { createDefaultGraph, createDefaultLabel ,createDefaultDataset  } from "@/constants/graphStructure";
+import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage";
 
 export const GraphContext = createContext({
     allGraphs: [],
@@ -12,7 +13,10 @@ export const GraphContext = createContext({
 export const GraphProvider = ({ children }) => {
     const {user} = useContext(UserContext)
 
-    const [allGraphs, setAllGraphs] = useState(user.graphs)
+    const graphsInfo = getLocalStorage("graphs")
+    const graphs = JSON.parse(graphsInfo)
+
+    const [allGraphs, setAllGraphs] = useState(graphs)
     const [graph, setGraph] = useState()
 
     class graphMethods{

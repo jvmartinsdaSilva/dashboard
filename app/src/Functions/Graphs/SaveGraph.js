@@ -16,6 +16,7 @@ export const SaveGraph = async graphInfos => {
     })
 
     const res = await data.json()
+    console.log(res)
     return res
 
 
