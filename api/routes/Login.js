@@ -5,7 +5,6 @@ import { GetGraphInfos } from "../DataBase/Graphs/GetGraphs.js";
 
 
 export const Login = async (req, res) => {
-    console.log("login")
     const datas = {
         email: req.body.email,
         password: req.body.password

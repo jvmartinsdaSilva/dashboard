@@ -13,11 +13,13 @@ export const RegisterUser  = async datas => {
 
     const res = await data.json()
     if(res.sucess){
-        const {user} = res
+        const {user, token, graphs} = res
         const userInfo = JSON.stringify(user)
+        const graphsInfo = JSON.stringify(graphs)
         setLocalStorage("id", res.user.id)
-        setLocalStorage("token",res.token)
+        setLocalStorage("token",token)
         setLocalStorage("user", userInfo)
+        setLocalStorage("graphs", graphsInfo)
     }
     return res
 }

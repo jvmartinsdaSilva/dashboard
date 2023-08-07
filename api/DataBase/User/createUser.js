@@ -79,8 +79,8 @@ export const createUser = async data => {
                 name: user.name, 
                 id: user._id, 
                 img: user.userImg, 
-                graphs: [], 
-            }
+            },
+            graphs: []
         }
 
     } catch (err) {

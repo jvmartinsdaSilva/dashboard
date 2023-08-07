@@ -12,14 +12,12 @@ class GetGraphs{
         return new Promise(async(resolve, reject) => {
             await this.connect()   
             const graphs = this.collection.find({ownerUser: userId}).toArray()
-            console.log(graphs)
             return resolve(graphs)
         })
     }
 }
 
 export const GetGraphInfos = async userId => {
-    console.log("getGraphs")
     const getGraphs = new GetGraphs()
     const graphs = await getGraphs.getByUserId(userId)
 
