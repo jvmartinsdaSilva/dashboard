@@ -8,12 +8,12 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup"  
 
 import { RegisterUser } from "@/Functions/Register/Register"
-import { setLocalStorage } from '@/Functions/LocalStorage/LocalStorage'
 
 import Form from "@/components/Form/Form"
 import { Input } from "@/components/Inputs/InputDefault/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from '@/components/Message/Message'
+import { Loading } from '@/components/Loading/Loadin'
 
 const schema = Yup.object().shape({
   name: Yup.string().min(3, "No mínimo 3 letras").max(30, "No maxímo 30 caracteres").required("Nome obrigatório"),
@@ -24,20 +24,26 @@ const schema = Yup.object().shape({
 
 const FormRegister = () => {
   const {push} = useRouter()
-  const [serverResposne, setServeResponse] = useState('')
+  const [serverMessage, setServerMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "all",
     resolver: yupResolver(schema)
   })
 
+  const serverResponse = msg => {
+    setIsLoading(false)
+    setServerMessage(msg)
+    setTimeout(() => setServerMessage(""), 5000)
+  }
+
   const handleSubmitData = async datas => {
+    setIsLoading(true)
     const register = await RegisterUser(datas)
-    setServeResponse(register.msg)
-    if(register.sucess){
-      console.log(register)
-      push("/dashboard") 
-    }
+    console.log(register)
+    serverResponse(register.msg)
+    if(register.sucess) push("/dashboard")
   }
 
   return (
@@ -80,7 +86,8 @@ const FormRegister = () => {
 
 
       <Button text="Cadastrar" />
-      {serverResposne && <Message text={serverResposne} />}
+      {serverMessage && <Message text={serverMessage} />}
+      <Loading loadinStatus={isLoading} />
     </Form>
   )
 }

@@ -2,12 +2,10 @@ import * as S from "./style"
 
 import React from "react"
 
-export const Loading = () => {
+export const Loading = ({loadinStatus}) => {
     return(
-        <S.Container>
-            <S.LoadOutside>
+        <S.Container isLoading={loadinStatus} >
                 <S.LoadInside />
-            </S.LoadOutside>
         </S.Container>
     )
 }

@@ -12,6 +12,7 @@ import Form from "@/components/Form/Form"
 import { Input } from "@/components/Inputs/InputDefault/Input"
 import { Button } from "@/components/Buttons/DefaultButton/Button"
 import { Message } from "@/components/Message/Message"
+import { Loading } from "@/components/Loading/Loadin"
 
 const schema = Yup.object().shape({
     email: Yup.string().email("Insira um email valido").required("Campo obrigatório"),
@@ -20,17 +21,24 @@ const schema = Yup.object().shape({
 
 const Login = () => {
     const {push} = useRouter()
-    const [serverMessage, setServeMessage] = useState()
+    const [serverMessage, setServerMessage] = useState()
+    const [isLoading, setIsLoading] = useState(false)
     
     const {register, handleSubmit, formState: {errors}} = useForm({
         mode: "onSubmit",
         resolver: yupResolver(schema)
     })
 
+    const serverResponse = (msg) => {
+        setIsLoading(false)
+        setServerMessage(msg)
+        setTimeout(() => setServerMessage(""), 5000)
+    }
+
     const handleSubmitData = async datas => {
-        setServeMessage("")
+        setIsLoading(true)
         const login = await  LoginUser(datas)
-        setServeMessage(login.msg)
+        serverResponse(login.msg)
         if(login.token) push("/dashboard")
     }
 
@@ -58,7 +66,7 @@ const Login = () => {
 
             <Button text="Entar" />
             {serverMessage && <Message text={serverMessage} />}
-
+            <Loading loadinStatus={isLoading} />
         </Form>
     )
 }
