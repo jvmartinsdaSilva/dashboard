@@ -9,9 +9,6 @@ export const Container = styled.div`
     background: ${props => props.theme.bgColors.bgColor1};
     padding: 0 0 .6em 0 ;
 
-    button{
-        margin: 0 1em;
-    }
 
     @media  (max-width: ${props => props.theme.mediaQuery}){
         width: 100%;

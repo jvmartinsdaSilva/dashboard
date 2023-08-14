@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 80%;
-    margin: 1.25em auto;
-    padding: .5em;
+    margin: 1.25em 3em;
+    padding: .5em 0;
     height: 200px;
 
     h2{
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `
 
 export const List = styled.ul`
-    margin: .5em 0;
+    /* margin: .5em 0; */
     height: 80%;
     overflow: auto;
     color: ${props => props.theme.font.color_default};
