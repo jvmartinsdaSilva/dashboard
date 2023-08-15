@@ -9,7 +9,7 @@ export const Button = styled.button`
     background: ${props => props.theme.primary.color_default};
     cursor: pointer;
     transition:  .4s;
-    margin: .5em 3em;
+    margin: .5em 0em;
     font-size: 18px;
 
     &:hover{

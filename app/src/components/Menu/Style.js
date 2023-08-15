@@ -16,3 +16,11 @@ export const Container = styled.div`
     }
 
 `
+
+export const  BottomContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 0 .6em 2.5em;
+.
+`

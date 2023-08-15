@@ -27,8 +27,10 @@ export const Menu = () => {
             <BurgerButton />
             <MenuOptions />
             <UserInfo />
+        <S.BottomContainer>
             <GraphList />
             <Button text="Novo gráfico" onClick={() => showGraph()} />
+        </S.BottomContainer>
         </S.Container>
     )
 }
