@@ -21,6 +21,7 @@ export const  BottomContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 0 0 .6em 2.5em;
-.
+    padding-left: 2em;
+    width: 100%;
+    height: 40%;
 `
