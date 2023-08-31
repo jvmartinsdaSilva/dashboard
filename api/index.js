@@ -17,11 +17,12 @@ app.use(cors())
 app.use(express.json())
 
 
+app.use("/", (req, res) => res.send("Dashboard api"))
+
 app.post("/register", RegisterUser)
 app.post("/login", Login)
 app.get("/dashboard/:id", checkToken)
 app.get("/dashboard/userInfos/:id", GetUser)
-
 
 app.post("/dashboard/saveGraphs/:id", SaveGraphs)
 app.get("/dashboard/getGraphs/:id", GetGraphs)
