@@ -4,13 +4,13 @@ import { client } from "../conection.js"
 class GetGraphs{
     constructor()
     {
-        this.connect = () => client.connect().catch(err => reject({msg: "Não conseguimos conectar"}, err))
+        this.connect = () => client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
         this.db = client.db("dashboard")
         this.collection = this.db.collection("graphs")
     }
     getByUserId(userId){
-        return new Promise(async(resolve, reject) => {
-            await this.connect()   
+        return new Promise((resolve, reject) => {
+            this.connect().catch(err => reject(err.msg))  
             const graphs = this.collection.find({ownerUser: userId}).toArray()
             return resolve(graphs)
         })

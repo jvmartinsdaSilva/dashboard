@@ -8,19 +8,16 @@ const modifyUser = new ModifyUser()
 
 export class InsertDatas{
     constructor(){
-        this.connect = async () => {
-            await client.connect().catch(err => reject({msg: "Erro ao conectar", err}))
-        }
+        this.connect = () => client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
         this.db = client.db("dashboard")
-
         this.collection = this.db.collection("graphs")
     }
     createGraph(userId, graphInfos, graphId){
-        return new Promise(async (resolve, reject) => {
+        return new Promise((resolve, reject) => {
             this.connect()
 
-            await modifyUser.addGraph(graphId, userId)
-            await this.collection.insertOne({_id: graphId, ownerUser:userId , graph: graphInfos})
+            modifyUser.addGraph(graphId, userId)
+            this.collection.insertOne({_id: graphId, ownerUser:userId , graph: graphInfos})
                 .then(() => resolve({msg: "Dados salvos com sucesso"}))
                 .catch(err => reject({msg: "Desculpe não conseguimos salvar", err}))
             
