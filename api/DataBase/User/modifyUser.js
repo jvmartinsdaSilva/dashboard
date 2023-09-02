@@ -11,24 +11,24 @@ export class ModifyUser{
     }
     
     modifyUserPhoto(id, fileName){
-        return new Promise(async (resolve, reject) => {
-            await this.collection.updateOne({_id: id}, {$set: {userImg: fileName}})
+        return new Promise((resolve, reject) => {
+                this.collection.updateOne({_id: id}, {$set: {userImg: fileName}})
                 .then(() => resolve({msg: "Atualizado com sucesso"}))
                 .catch(err => reject({msg: "Não conseguimos atualizar", err}))
         })
     }
 
     modifyUserName(id, newNameUser){
-        return new Promise(async (resolve, reject) => {
-            await this.collection.updateOne({_id: id}, {$set: {name: newNameUser}})
+        return new Promise((resolve, reject) => {
+            this.collection.updateOne({_id: id}, {$set: {name: newNameUser}})
                 .then(() => resolve({msg: "Atualizado com sucesso"}))
                 .catch(err => reject({msg: "Não conseguimos atualizar", err}))
         })
     }
 
     addGraph(graphId, userId){
-        return new Promise(async (resolve, reject) => {
-            await this.collection.updateOne({_id: userId}, {$addToSet: {graphsId: graphId}})
+        return new Promise((resolve, reject) => {
+            this.collection.updateOne({_id: userId}, {$addToSet: {graphsId: graphId}})
                 .then(() => resolve({msg: "Atualizado com sucesso"}))
                 .catch(err => reject({msg: "Não conseguimos atualizar", err}))
         })

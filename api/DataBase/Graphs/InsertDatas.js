@@ -8,8 +8,8 @@ const modifyUser = new ModifyUser()
 
 export class InsertDatas{
     constructor(){
-        this.connect = () => client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
-        this.db = client.db("dashboard")
+        this.connect = async () => await client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
+        this.db =  client.db("dashboard")
         this.collection = this.db.collection("graphs")
     }
     createGraph(userId, graphInfos, graphId){

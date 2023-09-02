@@ -4,7 +4,7 @@ import { client } from "../conection.js"
 class GetGraphs{
     constructor()
     {
-        this.connect = () => client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
+        this.connect = async () => await client.connect().catch(err => ({msg: "Não conseguimos conectar ao Banco"}, err))
         this.db = client.db("dashboard")
         this.collection = this.db.collection("graphs")
     }
