@@ -35,8 +35,8 @@ class HashGenerator {
 
 class RegisterUser {
     registerInDb(user) {
-        return new Promise((resolve, reject) => {
-            client.connect().catch((err) => reject({success: false, err}))
+        return new Promise(async (resolve, reject) => {
+            await client.connect().catch((err) => reject({success: false, err}))
 
             const db = client.db("dashboard")
             const colletion = db.collection("users")
