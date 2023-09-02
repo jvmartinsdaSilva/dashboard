@@ -13,7 +13,7 @@ import { SaveGraphs } from "./routes/dashboard/SaveGraphs.js"
 import { GetGraphs } from "./routes/dashboard/GetGraphs.js"
 
 const app = express()
-app.use(cors())
+// app.use(cors())
 app.use(express.json())
 
 
