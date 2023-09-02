@@ -35,7 +35,7 @@ export const Authenticate = async datas => {
         
 
     } catch (err) {
-        return { authenticate: false, msg: `Erro: ao conectar` }
+        return { authenticate: false, msg: `Erro: ao conectar`, status: 400 }
 
     }
 }

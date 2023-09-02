@@ -17,7 +17,6 @@ app.use(cors())
 app.use(express.json())
 
 
-app.use("/", (req, res) => res.send("Dashboard api"))
 
 app.post("/register", RegisterUser)
 app.post("/login", Login)
