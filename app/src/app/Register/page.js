@@ -42,7 +42,7 @@ const FormRegister = () => {
     setIsLoading(true)
     const register = await RegisterUser(datas)
     console.log(register)
-    serverResponse(register.msg ?? "Erro ao conectar")
+    serverResponse(register.msg)
     if(register.sucess) push("/dashboard")
   }
 
