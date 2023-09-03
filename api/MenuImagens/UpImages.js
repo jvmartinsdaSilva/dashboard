@@ -1,10 +1,18 @@
 import multer from 'multer'
 import path from 'path'
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename)
+const dirProject = __dirname.split("/MenuImagens")[0]
+const dirPhotos = `${dirProject}/userImgs`
+
+
 export const Upload = multer({
     storage: multer.diskStorage({
         destination: (req, res, cb) => {
-            cb(null, "./userImgs")
+            cb(null, dirPhotos)
         },
         filename: (req, file, cb) => {
             const randomID = Date.now().toString()  + Math.round(Math.random() * 1000000)
