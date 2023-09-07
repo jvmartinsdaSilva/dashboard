@@ -39,5 +39,5 @@ app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto)
 app.use("/files", express.static(dirPhotos))
 
 
-const PORT = 8080
-app.listen(PORT, () => console.log("Servidor rodando em http://localhost:8080"))
+const PORT = 8081
+app.listen(PORT, () => console.log("Servidor rodando em http://localhost:" + PORT))

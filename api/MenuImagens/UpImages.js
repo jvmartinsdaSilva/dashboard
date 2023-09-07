@@ -4,15 +4,14 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dirPhotos = path.join(__dirname, '..', 'userImgs');
+const dirPhotos = path.join(__dirname, '..', 'userImgs/');
 
 export const Upload = multer({
-    
     storage: multer.diskStorage({
         destination: (req, res, cb) => {
-            console.log(__filename)
-            console.log(__dirname)
             console.log(dirPhotos)
+            console.log(__dirname) 
+            console.log(__filename)
             cb(null, dirPhotos)
         },
         filename: (req, file, cb) => {
