@@ -13,9 +13,6 @@ export const ToggleUserPhoto = async (req, res) => {
     const getUser =  new GetUserInfos
     const user = await getUser.getUserById(id)
     if(user.userImg !== "defaultUser.jpg") DeleteOld(user.userImg)
-    
-
-
         const saveUser = new ModifyUser
         console.log(file)
         console.log(fileName)

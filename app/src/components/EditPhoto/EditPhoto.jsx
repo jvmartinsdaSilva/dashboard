@@ -53,7 +53,6 @@ export const EditPhoto = ({ photoName }) => {
         if (res.sucess) {
             const attUser = await getUserInfos(user.id)
             login(attUser)
-
         }
         setServerMessage(res.msg)
         if(res.err) return console.log("Erro: " + res.err)

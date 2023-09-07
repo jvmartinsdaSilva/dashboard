@@ -1,13 +1,11 @@
 import { getLocalStorage } from "@/Functions/LocalStorage/LocalStorage"
 
 export const UploadPhoto = async (photo) => {
-    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
-    
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL 
     const formData = new FormData()
     formData.append("avatar", photo )
     const userId = getLocalStorage("id")
     const token = getLocalStorage("token")
-
 
     try{
         const data = await fetch(`${apiUrl}/togglePhoto/${userId}`, {
@@ -21,6 +19,7 @@ export const UploadPhoto = async (photo) => {
         const res = await data.json()
         return {msg: res.msg, sucess: res.isSucess}
     } catch(err) {
-        return {err, msg: "Erro ao realizar o uplaod"}
+        const info = err.json()
+        return {info, msg: "Erro ao realizar o uplaod"}
     }
 }
