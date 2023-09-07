@@ -6,20 +6,19 @@ export const UploadPhoto = async (photo) => {
     formData.append("avatar", photo )
     const userId = getLocalStorage("id")
     const token = getLocalStorage("token")
-    const data = await fetch(`${apiUrl}/togglePhoto/${userId}`, {
-        method: "POST",
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        body: formData
-    })
 
-    const res = await data.json()
-    return {msg: res.msg, sucess: res.isSucess}
+    try{
+        const data = await fetch(`${apiUrl}/togglePhoto/${userId}`, {
+            method: "POST",
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
 
-    // try{
-    // } catch(err) {
-    //     const info = err.json()
-    //     return {err, msg: "Erro ao realizar o uplaod"}
-    // }
+        const res = await data.json()
+        return {msg: res.msg, sucess: res.isSucess}
+    } catch(err) {
+        return {err, msg: "Erro ao realizar o uplaod"}
+    }
 }
