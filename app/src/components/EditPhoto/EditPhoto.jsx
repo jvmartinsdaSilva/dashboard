@@ -56,7 +56,7 @@ export const EditPhoto = ({ photoName }) => {
 
         }
         setServerMessage(res.msg)
-        if(res.err) return console.log(res.err)
+        if(res.err) return console.log(res.infoErr)
     }
 
     return (

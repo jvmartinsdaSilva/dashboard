@@ -21,6 +21,7 @@ export const UploadPhoto = async (photo) => {
         const res = await data.json()
         return {msg: res.msg, sucess: res.isSucess}
     } catch(err) {
-        return {err, msg: "Erro ao realizar o uplaod"}
+        const infoErr = await err.json()
+        return {infoErr, msg: "Erro ao realizar o uplaod"}
     }
 }
