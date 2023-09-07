@@ -22,7 +22,7 @@ export const ToggleUserPhoto = async (req, res) => {
                 
         res.status(202).json({isSucess: true, msg: "Upload realizado com sucesso"})
     } catch(err){
-        return {isSucess: false, err, msg: "Erro ao salvar imagem"}
+        return res.status(402).json({isSucess: false, err, msg: "Erro ao salvar imagem"})
     }
 
 }
