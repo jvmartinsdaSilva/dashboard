@@ -25,6 +25,7 @@ const __dirname = path.dirname(__filename)
 const dirProject = __dirname
 const dirPhotos = `${dirProject}/userImgs`
 
+
 app.post("/register", RegisterUser)
 app.post("/login", Login)
 app.get("/dashboard/:id", checkToken)
@@ -35,7 +36,7 @@ app.get("/dashboard/getGraphs/:id", GetGraphs)
 
 app.post("/toggleName/:id",  ToggleName)
 app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto)
-app.use("/files", express.static(dirPhotos))
+app.use("/files",() => console.log(dirPhotos) , express.static(dirPhotos))
 
 
 const PORT = 8080

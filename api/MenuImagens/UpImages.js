@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename)
 const dirProject = __dirname.split("/MenuImagens")[0]
 const dirPhotos = `${dirProject}/userImgs`
-
+console.log("Upload:" + dirPhotos)
 
 export const Upload = multer({
     storage: multer.diskStorage({
