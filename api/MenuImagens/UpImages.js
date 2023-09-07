@@ -7,6 +7,7 @@ const __dirname = path.dirname(__filename);
 const dirPhotos = path.join(__dirname, '..', 'userImgs');
 
 export const Upload = multer({
+    
     storage: multer.diskStorage({
         destination: (req, res, cb) => {
             console.log(__filename)

@@ -3,6 +3,7 @@ import { GetUserInfos } from "../DataBase/User/getUserInfos.js"
 import { DeleteOld } from "../MenuImagens/DeleteOld.js"
 
 export const ToggleUserPhoto = async (req, res) => {
+    try{
     const file = req.file  
     const fileName = file.filename  
     if(!file) return res.status(404).json({msg: "Arquivo não encontrado"})
@@ -14,7 +15,7 @@ export const ToggleUserPhoto = async (req, res) => {
     if(user.userImg !== "defaultUser.jpg") DeleteOld(user.userImg)
     
 
-    try{
+
         const saveUser = new ModifyUser
         console.log(file)
         console.log(fileName)
