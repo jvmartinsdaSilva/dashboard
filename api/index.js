@@ -36,7 +36,7 @@ app.get("/dashboard/getGraphs/:id", GetGraphs)
 
 app.post("/toggleName/:id",  ToggleName)
 app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto)
-app.use("/files",() => console.log(dirPhotos) , express.static(dirPhotos))
+app.use("/files", express.static(dirPhotos))
 
 
 const PORT = 8080
