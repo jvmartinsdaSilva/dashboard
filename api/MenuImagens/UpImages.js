@@ -1,13 +1,10 @@
 import multer from 'multer'
-import path from 'path'
-
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename)
-const dirProject = __dirname.split("/MenuImagens")[0]
-const dirPhotos = `${dirProject}/userImgs`
-console.log("Upload:" + dirPhotos)
+const __dirname = path.dirname(__filename);
+const dirPhotos = path.join(__dirname, '..', 'userImgs');
 
 export const Upload = multer({
     storage: multer.diskStorage({
