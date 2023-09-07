@@ -9,6 +9,9 @@ const dirPhotos = path.join(__dirname, '..', 'userImgs');
 export const Upload = multer({
     storage: multer.diskStorage({
         destination: (req, res, cb) => {
+            console.log(__filename)
+            console.log(__dirname)
+            console.log(dirPhotos)
             cb(null, dirPhotos)
         },
         filename: (req, file, cb) => {

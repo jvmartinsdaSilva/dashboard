@@ -22,7 +22,7 @@ export const ToggleUserPhoto = async (req, res) => {
                 
         res.status(202).json({isSucess: true, msg: "Upload realizado com sucesso"})
     } catch(err){
-        return {isSucess: false, msm: err}
+        return {isSucess: false, msg: err}
     }
 
 }
