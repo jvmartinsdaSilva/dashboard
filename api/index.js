@@ -1,4 +1,3 @@
-// import { homeRouter } from "./routes/index.js"
 import express from "express"
 import cors from "cors"
 
@@ -28,14 +27,15 @@ const dirPhotos = `${dirProject}/userImgs`
 
 app.post("/register", RegisterUser)
 app.post("/login", Login)
+
 app.get("/dashboard/:id", checkToken)
 app.get("/dashboard/userInfos/:id", GetUser)
-
 app.post("/dashboard/saveGraphs/:id", SaveGraphs)
 app.get("/dashboard/getGraphs/:id", GetGraphs)
 
 app.post("/toggleName/:id",  ToggleName)
-app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto) 
+app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto)
+
 app.use("/files", express.static(dirPhotos))
 
 
