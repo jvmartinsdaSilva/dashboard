@@ -1,15 +1,15 @@
 import express from "express"
 import cors from "cors"
 
-import { RegisterUser } from "./routes/Register.js"
-import { Login } from "./routes/Login.js"
-import { GetUser } from "./routes/dashboard/GetUser.js"
-import { checkToken } from "./routes/dashboard/CheckToken.js"
+import { RegisterUser } from "./Middlewares/Register.js"
+import { Login } from "./Middlewares/Login.js"
+import { GetUser } from "./Middlewares/dashboard/GetUser.js"
+import { checkToken } from "./Middlewares/dashboard/CheckToken.js"
 import { Upload } from "./MenuImagens/UpImages.js"
-import { ToggleUserPhoto } from "./routes/toggleUserPhoto.js"
-import { ToggleName } from "./routes/toggleName.js"
-import { SaveGraphs } from "./routes/dashboard/SaveGraphs.js"
-import { GetGraphs } from "./routes/dashboard/GetGraphs.js"
+import { ToggleUserPhoto } from "./Middlewares/toggleUserPhoto.js"
+import { ToggleName } from "./Middlewares/toggleName.js"
+import { SaveGraphs } from "./Middlewares/dashboard/SaveGraphs.js"
+import { GetGraphs } from "./Middlewares/dashboard/GetGraphs.js"
 
 import path from 'path'
 import { fileURLToPath } from 'url';
