@@ -1,13 +1,13 @@
 import express from "express"
 import cors from "cors"
 
-import { RegisterUser } from "./Middlewares/Register.js"
-import { Login } from "./Middlewares/Login.js"
-import { GetUser } from "./Middlewares/dashboard/GetUser.js"
+import { RegisterUser } from "./Middlewares/User/Register.js"
+import { Login } from "./Middlewares/User/Login.js"
+import { GetUser } from "./Middlewares/User/GetUser.js"
 import { checkToken } from "./Middlewares/dashboard/CheckToken.js"
 import { Upload } from "./MenuImagens/UpImages.js"
 import { ToggleUserPhoto } from "./Middlewares/toggleUserPhoto.js"
-import { ToggleName } from "./Middlewares/toggleName.js"
+import { ToggleName } from "./Middlewares/User/toggleName.js"
 import { SaveGraphs } from "./Middlewares/dashboard/SaveGraphs.js"
 import { GetGraphs } from "./Middlewares/dashboard/GetGraphs.js"
 
