@@ -1,4 +1,4 @@
-import { SearchEmail } from "../DataBase/User/searchEmail.js"
+import { SearchEmail } from "../../DataBase/User/searchEmail.js"
 import bcrypt from 'bcrypt'
 
 class ComparePass {

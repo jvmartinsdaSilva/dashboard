@@ -2,7 +2,7 @@ import { getLocalStorage } from "../LocalStorage/LocalStorage";
 
 
 export const checkAuthenticate = async () => {
-    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081"
     
     const token = getLocalStorage("token")
     const id = getLocalStorage("id")

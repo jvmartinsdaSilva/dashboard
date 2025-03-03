@@ -1,7 +1,7 @@
-import { Authenticate } from "../Methods/Authenticate.js"
-import { GenerateToken } from "../Methods/GenerateToken.js"
+import { Authenticate } from "../Authenticate/Authenticate.js"
+import { GenerateToken } from "../Authenticate/GenerateToken.js"
 
-import { GetGraphInfos } from "../DataBase/Graphs/GetGraphs.js";
+import { GetGraphInfos } from "../../DataBase/Graphs/GetGraphs.js";
 
 
 export const Login = async (req, res) => {

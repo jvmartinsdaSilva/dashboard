@@ -1,6 +1,6 @@
-import { ModifyUser} from "../DataBase/User/modifyUser.js"
-import { GetUserInfos } from "../DataBase/User/getUserInfos.js"
-import { DeleteOld } from "../MenuImagens/DeleteOld.js"
+import { ModifyUser} from "../../DataBase/User/modifyUser.js"
+import { GetUserInfos } from "../../DataBase/User/getUserInfos.js"
+import { DeleteOld } from "../../MenuImagens/DeleteOld.js"
 
 export const ToggleUserPhoto = async (req, res) => {
     const file = req.file  

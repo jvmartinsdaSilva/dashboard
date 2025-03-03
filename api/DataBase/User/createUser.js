@@ -1,5 +1,5 @@
 import { client } from '../conection.js'
-import { GenerateToken } from '../../Methods/GenerateToken.js'
+import { GenerateToken } from '../../Middlewares/Authenticate/GenerateToken.js'
 
 import { v4 as uuid } from 'uuid'
 import bcrypt from 'bcrypt'

@@ -1,7 +1,7 @@
 import { setLocalStorage } from "../LocalStorage/LocalStorage"
 
 export const RegisterUser  = async datas => {
-    const apiUrl =  process.env.NEXT_PUBLIC_API_URL
+    const apiUrl =  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8081"
     
     try{
         const data = await fetch(`${apiUrl}/register`, {
@@ -24,6 +24,6 @@ export const RegisterUser  = async datas => {
         }
         return res
     } catch {
-        return {msg: "Desculpe não conseguimos conetar"}
+        return {msg: "Desculpe não conseguimos conetara"}
     }
 }
