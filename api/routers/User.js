@@ -9,7 +9,6 @@ import { checkToken } from "../Middlewares/Authenticate/CheckToken.js";
 
 const UserRouters = Router()
 
-
 UserRouters.get("/userInfos/:id", GetUser)
 UserRouters.get("/authenticate/:id", checkToken)
 UserRouters.post("/toggleName/:id", ToggleName)
