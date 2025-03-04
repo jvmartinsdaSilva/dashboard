@@ -2,6 +2,7 @@ import { setLocalStorage } from "../LocalStorage/LocalStorage"
 
 const login = async userData => {
     const apiUrl =  process.env.NEXT_PUBLIC_API_URL
+    console.log(apiUrl)
     try{                                          
         const data = await fetch(`${apiUrl}/login`, {
             method: "POST",

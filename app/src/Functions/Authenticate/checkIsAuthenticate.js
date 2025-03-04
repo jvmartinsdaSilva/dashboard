@@ -9,7 +9,7 @@ export const checkAuthenticate = async () => {
 
     if(!token || !id) return {authenticate: false , msg: ""}
 
-    const isAuthenticate = await fetch(`${apiUrl}/dashboard/${id}`, {
+    const isAuthenticate = await fetch(`${apiUrl}/authenticate/${id}`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${token}`

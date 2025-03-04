@@ -1,13 +1,9 @@
 import express from "express"
 import cors from "cors"
 
-import { RegisterUser } from "./Middlewares/User/Register.js"
-import { Login } from "./Middlewares/User/Login.js"
-import { GetUser } from "./Middlewares/User/GetUser.js"
-import { checkToken } from "./Middlewares/dashboard/CheckToken.js"
-import { Upload } from "./MenuImagens/UpImages.js"
-import { ToggleUserPhoto } from "./Middlewares/toggleUserPhoto.js"
-import { ToggleName } from "./Middlewares/User/toggleName.js"
+import { UserRouters } from "./routers/User.js"
+
+import { checkToken } from "./Middlewares/Authenticate/CheckToken.js"
 import { SaveGraphs } from "./Middlewares/dashboard/SaveGraphs.js"
 import { GetGraphs } from "./Middlewares/dashboard/GetGraphs.js"
 
@@ -25,19 +21,15 @@ const dirProject = __dirname
 const dirPhotos = `${dirProject}/userImgs`
 
 
-app.post("/register", RegisterUser)
-app.post("/login", Login)
 
-app.get("/dashboard/:id", checkToken)
-app.get("/dashboard/userInfos/:id", GetUser)
+app.use("/", UserRouters)
+
 app.post("/dashboard/saveGraphs/:id", SaveGraphs)
 app.get("/dashboard/getGraphs/:id", GetGraphs)
 
-app.post("/toggleName/:id",  ToggleName)
-app.post("/togglePhoto/:id",   Upload.single("avatar"), ToggleUserPhoto)
 
 app.use("/files", express.static(dirPhotos))
 
 
-const PORT = 8081
+const PORT = 8082
 app.listen(PORT, () => console.log("Servidor rodando em http://localhost:" + PORT))

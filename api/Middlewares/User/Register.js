@@ -9,7 +9,6 @@ export const RegisterUser = async (req, res) => {
         confirmPassword: req.body.confirmPassword
     }
     const isValidUser = await ValidationUser(userInfos)
-    console.log(isValidUser)
     if (!isValidUser.valid) return res.status(isValidUser.status).json({msg: isValidUser.msg})
     const create = await createUser(userInfos)
 
